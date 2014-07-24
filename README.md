@@ -1,7 +1,7 @@
 hatchersWeb
 ===========
 
-<b>Building local communities globally</b>
+<h2>Building local communities globally</h2>
 
 The Rocket Hatch Creative Community Web app
 
