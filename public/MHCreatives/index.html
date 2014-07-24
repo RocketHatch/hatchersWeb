@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /> 
+    <meta name="title" content="Rocket Hatchers" /> 
+    <meta name="author" content="Larry Mason" /> 
+    <meta name="description" content="Directory of creative professionals in Huntsville, Alabama Metro Area." />
+    <!--meta name="image" content="http:alltowntech.com/images/hsvcity.jpg" /-->    
+    <meta name="keywords" content="starters, creatives, entrepreneurial, creative professional, innovation hubs, infrastructure technology, startup ecosystem, startups" /> 
+    <meta name="robots" content="all" /> 
+    <link rel="icon" href="rh64.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="rh64.png" type="image/x-icon" />
+    <link href="./stylesheets/rh.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway"/>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=greek-ext,latin' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	
+    <title>Rocket Hatchers</title> 
+
+    <script src="./javascripts/jquery-1.7.2.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ9EV1xuaqqq5Gn38WfDoQGsCzG4ARB6Y&sensor=false&libraries=visualization">
+    </script>
+	<script src="./javascripts/mhcCommon.js"></script>
+	<script src="./javascripts/rcsDMods.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js" type="text/javascript"></script>
+    <script src="./javascripts/app.js" type="text/javascript"></script>
+    <script src="./javascripts/rcsController.js" type="text/javascript"></script>	
+    <script src="./javascripts/jquery.sha256.js"></script> 
+    <script src="./javascripts/hprogCommon.js"></script>
+    <script src="./javascripts/mhcSite.js"></script>
+    <script src="./javascripts/mhcMap.js"></script>
+	<script src="./javascripts/mhcAjax.js"></script>
+    <script src="./javascripts/hprogCanvas.js"></script>
+	<script src="./javascripts/mhcLoad.js"></script>
+	
+    <script type="text/javascript">
+      google.maps.event.addDomListener(window, 'load', initializeMap);
+    </script>
+  </head>
+  <body id="bodycontainer" data-ng-app='mhcApp' data-ng-controller='RCSController'>    
+    <div id="container">
+    
+      <div id="rhheader">
+        <div id="rhmenubar">
+		  <div id="bhm" class="rhmenubutn rhlink clickable">Home</div>
+		  <div id="bvl" class="rhmenubutn rhlink clickable">Values</div>
+		  <div id="bcm" class="rhmenubutn">Community</div>
+		  <div id="bin" class="rhmenubutn rhlink clickable">Initiatives</div>
+		  <div id="bct" class="rhmenubutn rhlink clickable">Contact</div>
+		</div>		
+      </div>
+	  
+	  <div id="rhmhead">      
+        <div id='rhmenuback' class='closed'>
+		  <div id="bhmm" class="rhmenubutnM rhlink"><div class='mmtxt'>Home</div></div>
+		  <div id="bvlm" class="rhmenubutnM rhlink"><div class='mmtxt'>Values</div></div>
+		  <div id="bcmm" class="rhmenubutnM active"><div class='mmtxt'>Community</div></div>
+		  <div id="binm" class="rhmenubutnM rhlink"><div class='mmtxt'>Initiatives</div></div>
+		  <div id="bctm" class="rhmenubutnM rhlink"><div class='mmtxt'>Contact</div></div>
+		</div>
+	    <div id='touchMenuBar'>
+		  <div id='tigb'></div>
+		  <div id='rtotopb'></div>
+		</div>		
+      </div>
+	  
+	  <!-- Main Page Content -->
+	  <div id='mPage' class="page open">
+        <a name="top"></a>
+        <header id="pageHead">
+	      <div id='pgTitle'>
+	        <div id="logoName">Rocket Hatchers</div>
+		  </div>
+		  <div id='pgLogReg'>
+	        <div id="logregtab">Welcome </div>
+			<div id="lrtname">In </div>
+		  </div>
+	
+		<!--div id="search">
+		</div-->
+				
+		<!--div id="logReg">
+		</div-->
+		
+        </header>
+            
+	    <div id="skillbar" class="closed clickable">
+		  <div id="sklhead">
+		    <div id='btndwn'></div>
+		    <div id="sklSrchTxt">find people with skills</div>
+		  </div>
+		  <div id='skills'>
+		    <div id='sk0' class='skilltag main clickable' ng-click='updateFaces(0)'>
+			  <div class="sktxt">all</div>
+			</div>
+		    <div id='sk{{skill._id}}' class='skilltag main clickable' ng-repeat="skill in skillList" ng-click='updateFaces(skill._id)'>
+			  <div class="sktxt">{{skill.type.toLowerCase()}}</div>
+			</div>		  
+		  </div>
+	    </div>
+	  
+	    <div id="content">
+		   <div id="memdiplay" class="column-center">	      
+		     <div class="photoTile cover" data-ng-repeat="mem in members">
+			   <img class="memigm" src="./images/members/{{mem._id}}.jpg"/>
+			   <div class="idplate" data="{{mem.url}}" member="{{mem}}" ng-click='setCurrentMember(mem)'>
+			     <div class="platename ptxt" data="{{mem}}" member="{{mem}}">{{mem.name.fname}} {{mem.name.lname}}</div>
+				   <div class="plateskill ptxt">{{getSkills(mem.skillList)}}</div>
+				 </div>
+			   </div>
+		   </div>				  
+	    </div>
+	  </div>
+      <!-- end main page content -->
+	  
+      <!-- Profile page content --> 
+      <div id='pPage' class="page">
+	    <div id='proTop'> <!--data-ng-repeat="mbr in currentMember"-->
+			<div id='proPct'>
+			  <img class="pimg" src="./images/members/{{currentMember._id}}.jpg"/>
+			</div>
+			
+			<div id='proBio'>
+			  <div id='mname' class='bio'>
+			    <div id='mfname' class='mname pfield' data='name.fname'>{{currentMember.name.fname.toLowerCase()}}</div>
+				<div id='mlname' class='mname pfield' data='name.lname'>{{currentMember.name.lname.toLowerCase()}}</div>
+			    <img class="edit" src="./images/edit3.png"/>
+			  </div>
+			  
+			  <div id='tag' class='bio'>
+			    <div  id='tagfld' data='tagline' class='protxt pfield'>"{{currentMember.tagline}}"</div>
+			    <img class="edit" src="./images/edit3.png"/>
+			  </div>
+			  <div id='psbar' class='bio'>
+				<div id='psk{{$index + 1}}' class='proskilltag' data-ng-repeat="skl in curMemSkills">
+				  <div class='skilltag active profile'>
+					<div class="sktxt">{{skl.toLowerCase()}}</div>
+				  </div>		  
+				</div>
+			  </div>
+			  <div id='rhbar' class='bio' title='Not Implemented'>
+				<div id='thmbup' class="smLogos" data='{{currentMember._id}}'>
+				  <img class="memigm" src="./images/mediaLogos/rhThmb.png"/>
+				</div>
+				<div id='plus' class="smLogos" data='{{currentMember._id}}'>
+				  <img class="memigm" src="./images/mediaLogos/rhPlus.png"/>
+				</div>
+				<div id='arw' class="smLogos" data='{{currentMember._id}}'>
+				  <img class="memigm" src="./images/mediaLogos/rhArw.png"/>
+				</div>
+			  </div>
+			  <div id='smbar' class='bio'>
+				<div id='smd{{$index+1}}' class="smLogos smedia clickable" data-ng-repeat="(typ,lnk) in currentMember.social" data='{{lnk}}'>
+				  <img class="memigm" src="./images/mediaLogos/{{typ}}Fg.png" />
+				</div>
+			  </div>
+			  
+			  <div id='wlink' class='mylnk bio clickable' ng-hide="! currentMember.url">
+				<div id='mlnlbl'>my site: </div>
+				<div id='mlntxt' class='pfield' data='{{currentMember.url}}'>{{currentMember.url}}</div>
+				<img class="edit" src="./images/edit3.png"/>
+			  </div>
+			</div>
+		</div>
+        <div id='proBot'>		
+			<div id='txtABio'>
+			  <div id='ptxthead'></div>
+			  <div id='ptxtarea'></div>
+			</div>
+			<div id='txtSendMess'>
+			  <div id='mtxthead'></div>
+			  <div id='mtxtarea'></div>
+			</div>		
+		</div>
+	  </div>
+	  <!-- end pofile page content -->
+	  
+      <footer id="pageFooter">
+	    <div id="copyright" class="ftxt"> &copy; Copyright 2014 All Rights Reserved</div>
+        <div id="fs" class="fsep separator ftxt">|</div>
+   	    <div id="cre" class="ftxt">Created by</div>
+        <div id="rhLink" class="ftxt rhlink clickable">Rocket Hatch</div>		  
+      </footer>
+    </div> 
+      <!-- Popups -->
+    <div id='logregarea' class='puBlk'>
+	  <div id='logreghead' class='messhead'>login</div>
+	  
+      <div id='logregBx' class='messbox' >
+	    <div id='inputarea'>
+          <div id='log' class='message'>	    
+            <input id="untxt" type="text" class='log' placeholder="email"></input>
+            <input id="pwtxt" type="password" class='log' placeholder="password"></input>
+          </div>
+          <div  id='reg' class='message'>
+            <div id='rname' class='reg'>		  
+              <input id="regfn" type="text" class='reg name' placeholder="first name"></input>
+              <input id="regln" type="text" class='reg name' placeholder="last name"></input>
+			</div>
+            <input id="regeml" type="text" class='reg' placeholder="email"></input>
+            <input id="regpfn" type="text" class='reg photo' placeholder="browse to choose file"></input>
+			<div id='photouparea'>
+			  <input id='photobrws' type="file" name="datafile" class='rhFileInput upload cmd'></input>
+			  <div id='photoBr' class='upload cmd clickable'> browse </div>
+			  <!--div id='photoUp' class='upload cmd clickable'> upload </div-->
+			  <div id='filename'></div>
+			</div>
+            <textarea id="regtag" rows='2' type="text" class='reg tag' placeholder="tagline"></textarea>
+            <input id="regweb" type="text" class='reg' placeholder="personal web site"></input>
+            <input id="regpw" type="password" class='reg' placeholder="password"></input>
+            <input id="cregpw" type="password" class='reg' placeholder="confirm"></input>
+	      </div>
+		</div>
+		<div id='picarea'>
+		  <img id="baseimg" src="./images/faces_gr.png"/>
+          <canvas id='canvas'></canvas>
+        </div>
+		<div id='nmSkills'>
+		  <div id='nmsk{{skill._id}}' class='skilltag pu clickable' ng-repeat="skill in skillList">
+	        <div class="sktxt">{{skill.type.toLowerCase()}}</div>
+	      </div>		  
+		</div>
+	  </div>
+	  
+      <div id='logregfoot' class='messfoot'>
+        <div id='separator'></div>
+		<div id="pwreset" class="mJoin clickable log"> forgot password? </div>
+        <p id="logregcan" class="mDone clickable"> cancel </p>
+	    <p id="logregsep" class="mDone"> | </p>
+	    <p id="logregsend" class="mDone clickable"> send </p>
+		<div id="logregjoin" class="mJoin clickable log"> join the community </div>
+      </div>
+    </div>
+      <!--div id="butArea">
+        <div id='logRegButton' class="phoButton login"><div class="phoButtonText">Login</div></div>
+      </div-->
+    </div>
+  
+    <div id='messageArea' class='puBlk'>
+	  <div id='msghead' class='messhead' >message</div>
+	  
+	  <div id='msgBx' class='messbox' >
+        <div id='msg' class='message'>	    
+          <div id="messTxt"><div id='mtxt'></div></div>
+        </div>
+      </div>
+	  
+	  <div id='inpBx' class='messbox' >
+        <div id='prpt' class='prompt'>	    
+          <div id="prptTxt"><div id='ptxt'><input id="frgtpw" type="text" class='frtpw' placeholder="email"></input></div></div>
+        </div>
+      </div>
+	  
+	  <div id='msgfoot' class='messfoot'>
+        <div id='separator'></div>
+		<p id="messcan" class="mDone clickable msg"> ok </p>
+	    <p id="messsep" class="mDone msg"> | </p>
+	    <p id="messsend" class="mDone clickable msg unenabled"> submit </p>
+	  </div>	  
+    </div>	
+	
+    <div id="glass"></div>
+  </body>
+</html>

@@ -1,0 +1,1281 @@
+/* basic elements */
+html {
+  height: 100%;
+  min-height: 100%;
+  width: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  font-size: 75%;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  line-height: 1.88889;
+  color: #555753; 
+  background: #eee;	
+  margin: 0; 
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+p { 
+  margin-top: 0; 
+  text-align: justify;
+}
+
+input[type="text"], input[type="password"], textarea {
+  color: #fff;
+  text-align: center;  
+  font-family: 'Raleway', sans-serif;
+  font-size: 16pt;
+  letter-spacing: 0.05em;
+  padding: 2px;
+  background: #4dbadb;
+  border: none;
+}
+
+input:focus { 
+  outline: none;
+}
+
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: white;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-size: 16pt;
+
+}
+
+input[type="text"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder,
+textarea:-moz-placeholder { /* Firefox 18- */
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 16pt;
+  color: white;  
+}
+
+input[type="text"]::-moz-placeholder,
+input[type="password"]::-moz-placeholder,
+textarea::-moz-placeholder {  /* Firefox 19+ */
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 16pt;
+  color: white;  
+}
+
+input[type="text"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+textarea:-ms-input-placeholder {  
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 16pt;
+  color: white;  
+}
+
+acronym {
+  border-bottom: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+	background: rgba(0,0,0,0)
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: rgba(90,90,90,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(90,90,90,0.1); 
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}
+
+/* specific divs */
+#glass {
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background-color:rgba(200,200,200,.4);
+  z-index:100;
+}
+
+#container { 
+  height:auto;
+  width:100%; 
+}
+
+/*-- RocketHatch Menu Bar --*/
+#rhheader {
+  position: fixed;
+  height: 33px;
+  width: 100%;
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  font-size:10pt;
+  display: table;
+  z-index: 95;
+  top: 0;
+}
+
+#rhmhead {
+  display: none;
+}
+ 
+.rhmenubutn {
+  display: inline-block;
+  padding-top: 5px; 
+  background-color: #626971;
+  transition: 1s;
+  -moz-transition: 1s;
+  -webkit-transition: 1s; 
+}
+
+.rhmenubutn:hover {
+  background-color: #57bcdb;
+  transition: 1s;
+ -moz-transition: 1s;
+ -webkit-transition: 1s;
+}
+
+#rhmenubar {
+  display: table-row;
+  text-align: center;
+  v-align: middle;
+  background-color: #626971;
+}
+
+#bhm {
+  width:58px;
+  height:100%
+}
+		  
+#bvl {
+  width:61px;
+  height:100%;
+}
+
+#bcm {
+  background-color: #57bcdb;
+  width:90px;
+  height:100%;
+}
+#bin {
+  width:75px;
+  height:100%;
+}
+
+#bct {
+  width:66px;
+  height:100%;
+}
+
+/*-- Main Page Head --*/
+#pageHead {
+  height: auto;
+  display:block;
+}
+
+#pgTitle {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  top: 30px;
+}
+
+#pgLogReg {
+  width: 80px;
+  font-family: 'Raleway', sans-serif;
+  background: #ccc;
+  margin-right: 10px;
+  top: 32px;
+  right: 0;
+  position: absolute;
+  text-align: center;
+}
+
+#logregtab, #lrtname {
+  display: inline-block;
+}
+
+#logoName {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  font-size: 36pt;
+  /*position: relative;
+  top: 40px;
+  left: 45%;*/
+  text-align: center;
+}
+
+#logoM {
+  width:90px;
+  height:90px;
+  background: url('../images/RCS-logo200X193.png') ;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+#bannerNom {
+  display: inline-block;
+  position: relative;
+  top: -40px;
+  color: #009ccc;
+  left: 5px;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-weight: bold;
+}
+
+#rc {
+  height: 15px;
+  font-size: 11pt;
+}
+
+#str {
+  height: 25px;
+  font-size: 16pt;
+}
+
+/*-- Login/Join Menu --*/
+#mmenubar {
+  color: #009ccc; 
+  position: relative;
+  left: 45%;
+  top: -45px;
+}
+
+#abt { }
+#val { }
+#join { }
+#evnt { }
+#cont { }		  
+
+/*#logReg*/
+
+/*-- login and reg --*/
+/*-- Skills bar --*/
+#skillbar {
+  width:100%;
+  height: 25px;
+  background: #ccc;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 3px;
+  position: relative;
+  top: 30px;
+}
+
+#skillbar:hover {
+  font-weight: normal;
+}
+
+/*#skillbar.open {
+  height: auto;
+}*/
+
+#sklhead {
+  height: auto;
+  /*text-align: center;*/
+}
+
+#sklhead:hover {
+  font-weight: normal;
+}
+
+#btndwn {
+  width: 27px;
+  height: 15px;
+  background: url('../images/dropdown.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+  margin-left: 10px;
+  position:relative; 
+  top: 2px;
+}
+
+#sklSrchTxt {
+  height: auto;
+  font-size: 12pt;
+  font-weight: bolder;
+  display: inline-block;
+  position:relative; 
+  top: -2px;
+  left: 2px;
+}
+
+#skslct {
+  width: 70px;
+  background: rgba(255,255,255,.4);
+  visibility: visible;
+  position: relative;
+  left: 50%;
+  margin-left: -25px;
+  margin-bottom: 5px;
+  visibility: hidden;
+  text-align: center;
+}
+
+.sktxt {
+  margin: 4px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.skilltag {
+  width:auto;
+  heigh: auto;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 10pt;
+  color: #fff;
+  display: inline-block; 
+  background: #009ccc;
+  /*padding: 2px;*/
+  /*padding-left: 2px;
+  padding-right: 2px;*/
+  margin: 4px;
+  visibility: hidden;
+}
+
+.skilltag.pu {
+  visibility: visible;
+}
+
+.skilltag.main:hover { 
+  background: rgba(200,200,200,.5);  
+}
+
+.skilltag.pu:hover { 
+  background: rgba(200,200,200,.5);  
+}
+
+
+.skilltag.active {
+   background: #f7931e;  
+}
+
+#nmSkills {
+  background-color: #ccc;
+}
+
+#content {
+  width: 100%;
+  height: auto;
+  min-height: 60%;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  top: 20px;
+}
+
+.photoTile {
+  position: relative;
+  width: 20%;
+  display: inline-block;
+}			   
+
+#memdiplay {
+  line-height: 0;  
+}
+
+#memdiplay img {
+  width: 100%;
+  height: auto;
+
+}
+		  
+/*.photoTile {
+  position: relative;
+  width: 20%;
+  display: inline-block;
+}*/
+			   
+.idplate {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  bottom: 0;
+  background-color:rgba(90,90,90,.6);
+  z-index:10;
+  cursor: pointer;
+  line-height: 1.88
+}
+
+.idplate.slide {
+  height: 35%;
+  max-height: 35%; /* approximate max height */
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  text-align:center;
+}
+
+.platename {
+  visibility: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14pt; 
+  color: #fff;
+  font-weight: bold; 
+  text-align: center;  
+}
+
+.plateskill { 
+  visibility: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10pt; 
+  color: #fff;
+  font-weight: bold;  
+  text-align: center;
+}
+
+/* -- footer -- */
+#pageFooter {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  background-color: #626971;
+  position: relative;
+  bottom: -10px;
+  height: 50px;
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+}
+
+#pageFooter.profile {
+  position: fixed;
+  bottom: 0px;
+} 
+
+#copyright {}
+
+.ftxt {
+  margin-top: 12px;
+  color: #fff;
+  display: inline-block;
+}
+
+.fsep {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#rhLink {
+  font-weight: bold;
+}
+
+#mPage {
+  width:100%;
+  height: auto;
+  display: block;  
+  top: 40px;
+
+}
+
+/* profile page styles */
+#pPage {
+  width:100%;
+  height: auto;
+  display: none;
+  position: relative;  
+  top: 40px;
+}
+
+.page {}
+#proPct {
+  width: 30%;
+  height: auto;
+  display: inline-block;
+}
+.pimg {
+  width: 100%;
+  height:auto;
+}
+
+.bio {
+  position: absolute;
+  margin-left: -5px;
+}
+
+#proBio {
+  display: inline-block;
+  position: fixed;
+  top: 40px;
+  left: 35%;
+  width: 100%;
+}
+#mname {
+  font-size:28pt;
+  color: #009ccc;
+}
+.mname {
+  display: inline-block;
+}
+.edit {
+  display: none;  
+}
+.protxt {
+  font-size:18pt;
+  color: #808080;
+  line-height: 35px;
+  cursor: insert;
+  display: inline-block;  
+}
+
+.skilltag.active.profile {
+  visibility: visible;
+}
+
+#psbar {
+}
+
+#rhbar {
+  font-size: 0;
+  margin-right: 10px;
+}
+
+.proskilltag {
+  display: inline-block;
+} 
+
+#smbar {
+  font-size: 0;
+  margin-right: 10px;
+}
+
+.smLogos {
+  width: 50px;
+  height: 50px;
+  background: #009ccc;
+  display: inline-block;
+  margin: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.smLogos.smedia:hover {
+  background: #f7931e;
+}
+
+#wlink {
+  font-size: 14pt;
+} 
+#mlnlbl {
+  color: #808080;
+  display: inline-block;
+}
+
+#mlntxt {
+  color: #009ccc;
+  display: inline-block;
+}
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus{
+border:none;
+outline:none;
+}
+[contenteditable="true"]:focus::before{
+content:"Edit Me!";
+} 
+#txtABio {
+
+}
+#ptxthead {
+
+}
+#ptxtarea {}
+
+#txtSendMess {
+
+}
+#mtxthead {
+
+}
+#mtxtarea {
+
+}		
+/* end profile page */
+/* --- login block --- */
+#logregarea {
+  position: fixed;
+  display: none;  
+  background-color: #fcf6e0;
+  opacity: 1;
+}
+
+#logregarea.login {
+  top: 33px;
+  right: 10px;
+  height: 0;
+  width: 25%;
+}
+
+#logregarea.register {
+  top: 125px;
+  width: 80%;
+  right: 10%;
+ }
+
+#inputarea { 
+  height: auto;
+  width: 50%;
+  display: inline-block;
+}
+
+#picarea {
+  background-color: blue;
+  width: 350px;
+  height:350px;
+  display: none;
+  position: relative;
+  top: 4px;
+}
+#canvas {
+  display: none;
+}
+
+#baseimg {
+  /*display: none;*/
+  height: 350px;
+  width: 350px;
+}
+/*
+.message {
+  visibiltiy: hidden;
+}
+
+.message.active {
+  visibility: visible;
+}
+*/
+#log {
+  display: display;
+}
+
+#reg { 
+  display: none;
+  position: relative;
+  top: -50px;
+}
+.reg {
+  width: 91%;
+  margin-right: 7%;
+}
+#rname {
+  width:93%;
+}
+.reg.name {
+  width: 48%;
+  margin-right: 0;
+}
+
+.reg.tag {
+  height: 50px;
+}
+
+#logregBx {
+  /*display: none;*/
+  /*visibility: visible;*/
+}
+
+input.log {
+  width: 90%;
+}
+.upload.cmd {
+  width:auto;
+  height: auto;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 10pt;
+  color: #fff;
+  display: inline-block; 
+  background: #666;
+  padding: 2px 5px;
+  height: 25px;
+  margin: 10px;
+  float: left;
+}
+.upload.cmd:hover {
+  background: #ccc;
+}
+#photobrws {
+  display: none;
+}
+#photoBr {
+  display: none;
+}
+.rhFileInput::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.rhFileInput::after {
+  visibility: hidden;
+}
+.rhFileInput::before {
+  content: 'browse';
+  padding: 7px 5px;
+  white-space: nowrap;
+}
+.rhFileInput:hover::before {
+  border-color: none;
+  background: #ccc;
+}
+.rhFileInput:active::before {
+  background: #ccc;
+}
+
+#regtag {
+  position: relative;
+  top: 3px;
+}
+   
+#messageArea {
+  position: fixed;
+  top: 70px;
+  width: 60%;
+  margin-left: 20%;
+  margin-right:20%;
+  visibility: hidden;
+  background-color: #fcf6e0;
+  opacity: .9;
+}
+
+#messageArea.fpw {
+  width: 40%;
+  margin-left: 30%;
+  margin-right:30%
+}
+
+#msgBx {
+  height: 225px;
+  width: 100%;
+  position: relative;
+  background-color: #009ccc;
+  opacity: .9; 
+  display: table;  
+}
+
+.frtpw {
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.messbox {
+  width: 100%;
+  background-color: #009ccc;
+  opacity: .9; 
+  display: table;  
+}
+
+.message {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*
+.message {
+  height: 225px;
+  width: 100%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  top: 60px;
+}
+*/
+
+.minput {
+  position: relative;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%
+}
+
+#sendtxt {
+  width: 89%;
+  top: -70px;
+  height: 200px;
+  margin-left: 5%;
+  margin-right: 5%
+}        
+
+#messsend.msg {
+  display: none;
+}
+
+#messsep.msg {
+  display: none;
+}
+
+#messsend.fgtpw {
+  display: inline-block;
+}
+
+#messsep.fgtpw {
+  display: inline-block;
+}
+
+#messTxt {
+  font-family: 'Raleway', sans-serif;
+  font-size: 14pt;
+  background: #ccc;
+  margin-right: 10px;
+  height: auto;
+  height: 170px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #fff;
+}
+
+#mtxt {
+  position: relative;
+  top: 70px;
+}
+
+#pDone, #pDone A, #plogregDone {
+  color: #5f3133;
+  font: bold 10px/1 Arial, cursive, sans-serif;
+  /*position: relative;*/
+  display: inline-block;
+  text-align: center;
+  bottom: -1px;
+  /*cursor: pointer;*/
+}
+
+#plogregDone {
+  font: bold 10px/1 Arial, cursive, sans-serif;
+  color: #fff;
+  z-index: 150;
+  height: 25px;
+  bottom: -1px;
+  /*cursor: pointer;*/
+}
+
+#plogregDone.reg {
+  position: relative;
+  top: -89px;
+}
+
+#plogregDone.log {
+  position: relative;
+  top: -287px;
+}
+
+.mDone {
+  color: #fff;
+  font: bold 12px/1 Arial, cursive, sans-serif;
+  /*display: inline-block;*/
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  z-index: 110;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.mDone.unenabled {
+  color: #ccc;
+  cursor: default;
+}
+
+.mJoin { 
+}
+
+.messhead {
+  color: #fff;
+  background-color: rgba(128,128,128, 0.8);
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 20pt;
+  text-align: center;
+  vertical-align: middle;
+  padding:10px;
+  overflow:hidden;
+  /*text-shadow: 2px 2px / 0.2em / #433a3a;*/
+}
+
+.messfoot {
+  color: #fff;
+  background-color: rgba(128,128,128, 0.8);
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 10pt;
+  text-align: center;
+  vertical-align: middle;
+  padding:10px;
+  overflow:hidden;
+  /*text-shadow: 2px 2px / 0.2em / #433a3a;*/
+}
+.puBlk {
+  position: absolute;
+  text-align:center;
+  border: none;
+  margin-left: -125px;             /* Adapt this to your own page... */
+  clear: both;
+  background-color:rgba(256,256,256,.9);
+  z-index:110;
+}
+
+.puBlk #separator {
+  position: relative;
+  background: #433a3a;
+  height: 1px;
+  bottom: 30px;
+  width: 80%;
+  margin-left: 10%;
+  z-index: 110;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
+@media screen (min-width: 1601px) {
+  .photoTile {
+    position: relative;
+    width: 20%;
+  }  
+}
+
+@media screen (min-width: 1201px), (max-width: 1600px) {
+  .photoTile {
+    position: relative;
+    width: 25%;
+  } 
+}
+
+@media screen (min-width: 801px), (max-width: 1200px) {
+  .photoTile {
+    position: relative;
+    width: 33%;
+  }  
+}
+
+@media screen (min-width: 501px), (max-width: 800px) {
+  body {
+    overflow-x: hidden;
+  } 
+  #rhheader {
+    display: none;
+  } 
+  #rhmhead {
+    display: block;
+  }  
+  #rhmenuback {
+    width: auto;
+	height: 100%;
+	background: rgba(232,232,232,.9);
+	border: solid #cecece 1px;
+    position: fixed;
+	top: 0;
+	left: -200px;
+	z-index: 95;
+  } 
+  #rhmenuback.lslide {
+    /*width: 100%;
+    max-width: 100%;  approximate max height */
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    left: 0;
+  }  
+  #touchMenuBar {
+    height: 44px;
+    width: 100%;
+    background: rgba(256,256,256,.5); 
+	position: fixed;
+	left: 5px;
+	z-index: 95;
+  } 
+  #touchMenuBar.lslide {
+    /*width: 100%;
+    max-width: 100%;  approximate max height */
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    left: 205px;
+    
+  }
+  #tigb {
+    width: 43px;
+    height: 33px;
+    background: url('../images/menuM.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    position:relative; 
+    top: 2px; 
+    z-index: 96;	
+  }
+  #rtotopb {
+    width: 43px;
+    height: 33px;
+    background: url('../images/totopM.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+    margin-top: 5px;
+    float: right;
+	    z-index: 96;
+  }
+  .rhmenubutnM {
+    width: 200px;
+	height: 41px;
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	border: solid #cecece 1px;
+  } 
+  .rhmenubutnM.active {
+    background: #fff;
+  } 
+  .mmtxt {
+    margin-left: 10px;
+	margin-top: 6px;
+  }
+  .photoTile {
+    position: relative;
+    width: 50%;
+  }
+  #logoName {
+    font-size: 30pt;
+  }
+  #pgLogReg {
+    top: 44px;
+  }  
+  #pgTitle {
+    top: 42px;
+	height: 55px;
+  }
+  #proPct {
+    width: 50%;
+    height: auto;
+    display: block;
+	margin-left: 50%;
+}
+  #proBio {
+    top: -50px;
+	left: 5%;
+	display: block;
+	position: relative;
+  }
+  .protxt {
+    font-size: 14pt;
+    line-height: 25px;
+  }
+  #mname {
+    font-size: 24pt;
+    position: absolute;
+	top: -240px;
+  }
+  #tag {
+    position: absolute;
+    top: -190px
+  }
+  #psbar {
+    top: -95px;
+  }
+  #rhbar {
+    height: 40px;
+    top: -20px;
+  }
+  #smbar {
+    height: 40px;
+    top: 35px;
+  }
+  .smLogos {
+    width: 40px;
+    height: 40px;
+  }
+  .memigm {
+    width: 40px;
+    height: 40px;
+  }
+  #wlink {
+    font-size: 12pt;
+	top: 140px;
+  }
+}
+
+@media (max-width: 650px) {
+  #proBio {
+    top: -25px;
+  }
+  #content {
+    height: 75%;
+  }
+}
+
+@media (max-width: 627px) {
+  .protxt {
+    line-height: 15px;
+	font-size: 12pt;
+  }
+  #mname {
+    font-size: 16pt;
+  }
+  #txtSendMess {
+    bottom: -25px;
+  }
+  #smbar {
+    bottom: -40px;
+  }
+  #wlink {
+    bottom: -60px;
+  }
+}
+
+@media screen (min-width: 501px),  (max-width: 575px) {
+  #logoName {
+    font-size: 26pt;
+  }
+  #psbar {
+    bottom: -20px;
+  }
+  #txtSendMess {
+    bottom: -70px;
+  }
+  #smbar {
+    bottom: -110px;
+  }
+  #wlink {
+    bottom: -135px;
+    left: 0%;
+  }
+}
+
+@media screen (min-width: 100px),(max-width: 500px) {
+  .photoTile {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }   
+  #messageArea {
+    top: 45px;
+    left: 5px;
+	position: fixed;
+  }  
+  #proPct {
+    height: auto;
+    display: block;
+	width: 100%;
+	margin-left: 0;
+  }
+  #proBio {
+    height: auto;
+    display: block;
+	top: 0;
+	position: relative;
+	left: 20px;
+  }
+  #mname {
+    top: 0;
+  }
+  #tag {
+    position: absolute;
+    top: 35px;
+  }
+  #psbar {
+    top: 60px;
+  }
+  #rhbar {
+    top: 95px;
+  }
+  #smbar {
+    position: absolute;
+    top: 145px;	
+  }
+  #wlink {
+	left: 0;
+	top: 210px;
+  }
+  #pageFooter.profile {
+    position: relative;
+	bottom: -65px;
+  }
+}
+
+@media (max-width: 400px) {
+  #logoName {
+    font-size: 18pt;
+  }
+
+  .skilltag {
+    font-size: 8pt;
+    padding-left: 1px;
+    padding-right: 1px;
+    margin: 2px;
+  }
+  
+  #logoM {
+    width:60px;
+    height:75px;
+  }
+
+  #bannerNom {
+    top: -24px;
+  }
+    
+  #skillbar {
+    position: relative;
+	top: 20px;
+  }
+   
+  #content {
+    position: relative;
+	top: 10px;
+  }
+  
+  #copyright {
+    visibility: hidden;
+  }
+  .separator.ftxt {
+    visibility: hidden;
+  }
+
+  .ftxt {
+    display: block;
+    top: -20px;
+    position: relative;
+    text-align: center;
+	visibility: hidden;
+  }
+}
+
+@font-face {
+    font-family: 'novecento_sans_widenormal';
+    src: url('./webfonts/Novecentosanswide-Normal-webfont.eot');
+    src: url('./webfonts/Novecentosanswide-Normal-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./webfonts/Novecentosanswide-Normal-webfont.woff') format('woff'),
+         url('./webfonts/Novecentosanswide-Normal-webfont.ttf') format('truetype'),
+         url('./webfonts/Novecentosanswide-Normal-webfont.svg#novecento_sans_widenormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+		
