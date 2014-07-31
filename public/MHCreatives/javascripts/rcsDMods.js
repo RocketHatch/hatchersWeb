@@ -75,6 +75,8 @@ function Member(emid,name,tagline,url,data) {
   this.data = data;
   this.url = url;
   this.lastLogon = null;
+  this.dateCreate = null;
+  this.dateExpire = null;
 };
 
 function sendMessage(recip,name,phone,email,txt) {

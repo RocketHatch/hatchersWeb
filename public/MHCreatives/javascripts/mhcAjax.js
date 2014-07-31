@@ -29,7 +29,7 @@ HPROG.ajax.insertMemeber = function(data) {
     data: dataS,
     xhrField: { withCredentials: true },
     success: function(validationResp) {
-      //console.log("data received: " + validationResp.length + " at column: " + column);
+      console.log("data received: " + validationResp.message);
       if (validationResp.message) {       
         HPROG.ajax.parseData(validationResp);
       } 

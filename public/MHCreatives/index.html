@@ -217,7 +217,7 @@
           <canvas id='canvas'></canvas>
         </div>
 		<div id='nmSkills'>
-		  <div id='nmsk{{skill._id}}' class='skilltag pu clickable' ng-repeat="skill in skillList">
+		  <div id='nmsk{{skill._id}}' data='{{skill._id}}' class='skilltag pu clickable' ng-repeat="skill in skillList">
 	        <div class="sktxt">{{skill.type.toLowerCase()}}</div>
 	      </div>		  
 		</div>

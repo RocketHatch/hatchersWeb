@@ -40,14 +40,19 @@ $(document).ready(function(){
 	  var c = document.getElementById("canvas");
       var ctx = c.getContext("2d");
 	  var img = document.getElementById("baseimg");
-	  console.log("img = " + img);
-      HPROG.canvas.loadImage(img, ctx);		  
-      HPROG.site.addMemberToDB($("#regeml").attr('value'),
-	                           $("#regfn").attr('value'), 
-							   $("#regln").attr('value'), 
-							   $("#regtag").attr('value'), 
-							   $("#regweb").attr('value'), 
-							   $.sha256($("#regpw").attr('value')));  
+	  var list = [1,3,4];
+	  var skills = $("#nmSkills").find('.active').each(function() {
+	    skills.push($( this ).attr('data'));
+	  });
+	  console.log("skills = " + skills);
+	  //console.log("img = " + img);
+      //HPROG.canvas.loadImage(img, ctx);		  
+      //HPROG.site.addMemberToDB($("#regeml").attr('value'),
+	  //                         $("#regfn").attr('value'), 
+	//						   $("#regln").attr('value'), 
+	//						   $("#regtag").attr('value'), 
+	//						   $("#regweb").attr('value'), 
+	//						   $.sha256($("#regpw").attr('value')));  
     }	  
   })
   $('#logregjoin').live('click', function() {
