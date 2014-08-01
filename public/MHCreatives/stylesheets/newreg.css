@@ -1,0 +1,238 @@
+/* basic elements */
+html {
+  height: 100%;
+  min-height: 100%;
+  width: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+  font-size: 75%;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  line-height: 1.88889;
+  color: #555753; 
+  background: #eee;	
+  margin: 0; 
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+}
+
+p { 
+  margin-top: 0; 
+  text-align: justify;
+}
+
+input[type="text"], input[type="password"], textarea {
+  color: #fff;
+  text-align: center;  
+  font-family: 'Raleway', sans-serif;
+  font-size: 16pt;
+  letter-spacing: 0.05em;
+  padding: 2px;
+  background: #4dbadb;
+  border: none;
+}
+/*
+input[type="text"]:focus, input[type="password"]:focus { 
+  outline: none;
+  font-family: 'Raleway', sans-serif;
+}
+*/
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: white;
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  /*font-family: 'Raleway', sans-serif;*/
+  font-size: 16pt;
+
+}
+
+input[type="text"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder,
+textarea:-moz-placeholder { /* Firefox 18- */
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 16pt;
+  color: white;  
+}
+
+input[type="text"]::-moz-placeholder,
+input[type="password"]::-moz-placeholder,
+textarea::-moz-placeholder {  /* Firefox 19+ */
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 16pt;
+  color: white;  
+}
+
+input[type="text"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder,
+textarea:-ms-input-placeholder {  
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 16pt;
+  color: white;  
+}
+
+acronym {
+  border-bottom: none;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+	background: rgba(0,0,0,0)
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: rgba(90,90,90,0.8); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(90,90,90,0.1); 
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}
+
+/* specific divs */
+#glass {
+  visibility:hidden;
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background-color:rgba(200,200,200,.4);
+  z-index:100;
+}
+
+#container { 
+  height:auto;
+  width:100%; 
+}
+
+.label {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+#nlbl_a {
+  font-size: 14pt;
+}
+
+#nlbl_b {
+  font-size: 18pt;
+}
+
+#confirmarea {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+#rimg {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+}
+.pimg {
+  width: 100%;
+  height:auto;
+}
+  
+.messbox {
+  width: 100%;
+  background-color: #009ccc;
+  opacity: .9; 
+  display: table;  
+}
+
+.message {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.mDone {
+  color: #fff;
+  font: bold 12px/1 Arial, cursive, sans-serif;
+  /*display: inline-block;*/
+  text-align: center;
+  position: relative;
+  z-index: 110;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.messhead {
+  color: #fff;
+  background-color: rgba(128,128,128, 0.8);
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 20pt;
+  text-align: center;
+  vertical-align: middle;
+  padding:10px;
+  overflow:hidden;
+  /*text-shadow: 2px 2px / 0.2em / #433a3a;*/
+}
+
+.messfoot {
+  color: #fff;
+  background-color: rgba(128,128,128, 0.8);
+  font-family: 'novecento_sans_widenormal', sans-serif;
+  font-size: 10pt;
+  text-align: center;
+  vertical-align: middle;
+  padding:10px;
+  overflow:hidden;
+  /*text-shadow: 2px 2px / 0.2em / #433a3a;*/
+}
+
+#narea {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.puBlk {
+  text-align:center;
+  border: none;         
+  clear: both;
+  background-color:rgba(256,256,256,.9);
+  z-index:110;
+}
+
+.unenabled {
+  color: #ccc;
+}
+.clickable:hover {
+  cursor: pointer;
+}
+
+
+@font-face {
+    font-family: 'novecento_sans_widenormal';
+    src: url('./webfonts/Novecentosanswide-Normal-webfont.eot');
+    src: url('./webfonts/Novecentosanswide-Normal-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./webfonts/Novecentosanswide-Normal-webfont.woff') format('woff'),
+         url('./webfonts/Novecentosanswide-Normal-webfont.ttf') format('truetype'),
+         url('./webfonts/Novecentosanswide-Normal-webfont.svg#novecento_sans_widenormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+		
