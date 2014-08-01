@@ -263,9 +263,9 @@ HPROG.site.logSuccess = function(data) {
   return false;
 }
 
-HPROG.site.addMemberToDB = function(email, fn, ln, tagline, url, data) {
+HPROG.site.addMemberToDB = function(email, fn, ln, skills, tagline, url, data) {
   console.log('ready to add: ');
-  var nMember = new Member(email, {fname:fn, lname:ln}, tagline, url, data);
+  var nMember = new Member(email, {fname:fn, lname:ln}, skills, tagline, url, data);
   console.log('the member: ' + JSON.stringify(nMember));
   HPROG.ajax.insertMemeber(nMember);
 }

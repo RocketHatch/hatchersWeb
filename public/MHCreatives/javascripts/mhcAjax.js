@@ -30,9 +30,13 @@ HPROG.ajax.insertMemeber = function(data) {
     xhrField: { withCredentials: true },
     success: function(validationResp) {
       console.log("data received: " + validationResp.message);
+	  if (validationResp.nid) {
+	    console.log('OK, now the new member is added, and an email sent... ' +
+		            'time to up load image, with the name of the "nid" (new id)');
+	  }
       if (validationResp.message) {       
-        HPROG.ajax.parseData(validationResp);
-      } 
+        HPROG.site.displayMessage(validationResp.message, true);;
+      }     
     }
   });
 };
@@ -48,7 +52,7 @@ HPROG.ajax.updateMemeber = function(data) {
     success: function(validationResp) {
       //console.log("data received: " + validationResp.length + " at column: " + column);
       if (validationResp.message) {       
-        HPROG.ajax.parseData(validationResp);
+        HPROG.site.displayMessage(validationResp.message, true);;
       } 
     }
   });

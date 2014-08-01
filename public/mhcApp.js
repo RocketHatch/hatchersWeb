@@ -19,6 +19,7 @@ handle['/get'] = requestHandlers.get;
 handle['/send'] = requestHandlers.send;
 handle['/updateDB'] = requestHandlers.updateDB;
 handle['/rdata'] = requestHandlers.reset;
+handle['/ndata'] = requestHandlers.confirm;
 //var sessions = new Array();
 
 server.start(router.route, handle);
