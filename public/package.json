@@ -1,6 +1,6 @@
 {
   "name": "mhcApp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Metro Huntsville Creatives registry, a Rocket Hatch Project",
   "main": "mhcApp.js",
   "scripts": {
@@ -8,11 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "RocketHatch/hatchersWeb"
+    "url": "https://github.com/RocketHatch/hatchersWeb/"
   },
   "keywords": [
     "creatives"
   ],
   "author": "Larry Mason",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "busboy": "~0.2.5",
+    "g": "~1.0.0",
+    "mongode": "~0.1.5",
+    "nodemailer": "~0.6.5"
+  },
+  "devDependencies": {}
 }
