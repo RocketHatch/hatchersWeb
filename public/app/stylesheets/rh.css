@@ -233,7 +233,7 @@ acronym {
 #logoM {
   width:90px;
   height:90px;
-  background: url('../images/RCS-logo200X193.png') ;
+  background: url('../app/images/RCS-logo200X193.png') ;
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
@@ -310,7 +310,7 @@ acronym {
 #btndwn {
   width: 27px;
   height: 15px;
-  background: url('../images/dropdown.png');
+  background: url('../app/images/dropdown.png');
   background-repeat: no-repeat;
   background-size: contain;
   display: inline-block;
@@ -1021,7 +1021,7 @@ input.log {
   #tigb {
     width: 43px;
     height: 33px;
-    background: url('../images/menuM.png');
+    background: url('../app/images/menuM.png');
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
@@ -1034,7 +1034,7 @@ input.log {
   #rtotopb {
     width: 43px;
     height: 33px;
-    background: url('../images/totopM.png');
+    background: url('../app/images/totopM.png');
     background-repeat: no-repeat;
     background-size: contain;
     margin-right: 5px;

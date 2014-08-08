@@ -1,0 +1,18 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="11">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="920" startPos="137" endPos="137" selMode="0" lang="Normal Text" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\config.json" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\session.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\insert.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\mdbcon.js" />
+            <File firstVisibleLine="271" xOffset="0" scrollWidth="1050" startPos="9512" endPos="9512" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\requestHandlers.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\router.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="689" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\server.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="910" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\mhcApp.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="2080" startPos="0" endPos="0" selMode="0" lang="Normal Text" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\emailNotify.json" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="680" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\sendNotification.js" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="860" startPos="0" endPos="0" selMode="0" lang="Javascript" encoding="-1" filename="D:\nodeProjects\MHCApp\public\node_modules\mdbactions.js" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

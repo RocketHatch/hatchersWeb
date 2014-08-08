@@ -1,5 +1,5 @@
 var server = require('server');
-var config = require('config.json');
+//var config = require('config.json');
 var session = require('session');
 var router = require('router');
 var requestHandlers = require('requestHandlers');
@@ -7,8 +7,8 @@ var message = require('sendNotification');
 var testUpdate = require('mdbactions');
 
 var CHECKLISTMINUTES = 5;
-
 var handle = {};
+
 handle['/'] = requestHandlers.start;
 handle['/login'] = requestHandlers.login;
 handle['/register'] = requestHandlers.register;
@@ -23,9 +23,9 @@ handle['/ndata'] = requestHandlers.confirm;
 //var sessions = new Array();
 
 server.start(router.route, handle);
-console.log("host and port in config.json is: " + config.host + " : " + config.port);
+//console.log("host and port in config.json is: " + config.host + " : " + config.port);
 console.log("MetroHuntsville Creative WEB Site up and running!");
-setInterval(function(){session.purgeSessions()},(CHECKLISTMINUTES*60*1000));
+//setInterval(function(){session.purgeSessions()},(CHECKLISTMINUTES*60*1000));
 	
 
 /*//--- Test stuff --------------------------------------- */
