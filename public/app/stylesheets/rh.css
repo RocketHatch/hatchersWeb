@@ -366,17 +366,24 @@ acronym {
   visibility: visible;
 }
 
-.skilltag.main:hover { 
+/*.skilltag.main:hover { 
   background: rgba(200,200,200,.5);  
-}
+}*/
 
 .skilltag.pu:hover { 
   background: rgba(200,200,200,.5);  
 }
 
+.skilltag.main:hover {
+  background: #50adc9;
+}
 
 .skilltag.active {
    background: #f7931e;  
+}
+
+.skilltag.active:hover {
+   background: #e3a761;  
 }
 
 #nmSkills {
