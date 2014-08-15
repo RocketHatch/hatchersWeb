@@ -38,8 +38,35 @@ input[type="text"], input[type="password"], textarea {
   border: none;
 }
 
+input[type="text"].pfield {
+  color: #f00;
+  background: rgba(0,0,0,0);
+  border: none;
+  text-align: left;
+  width: 500px;
+}
+
+input[type="text"].mname {
+  font-size: 28pt;
+  width: 250px;
+}
+
+input[type="text"].protxt {
+  font-size: 18pt;
+}
+
 input:focus { 
   outline: none;
+} 
+
+input[type="text"].pfield { 
+  outline: none;
+  background: rgba(0,0,0,.1);
+}
+
+input[type="text"].pfield:disabled { 
+  outline: none;
+  background: rgba(0,0,0,0);
 }
 
 input[type="text"]::-webkit-input-placeholder,
@@ -49,32 +76,24 @@ textarea::-webkit-input-placeholder {
   font-family: 'novecento_sans_widenormal', sans-serif;
   /*font-family: 'Raleway', sans-serif;*/
   font-size: 16pt;
-
 }
 
-input[type="text"]:-moz-placeholder,
-input[type="password"]:-moz-placeholder,
-textarea:-moz-placeholder { /* Firefox 18- */
-  font-family: 'novecento_sans_widenormal', sans-serif;
-  font-size: 16pt;
-  color: white;  
+input[type="text"].pfield::-webkit-input-placeholder {
+  color: #009ccc;
 }
 
-input[type="text"]::-moz-placeholder,
-input[type="password"]::-moz-placeholder,
-textarea::-moz-placeholder {  /* Firefox 19+ */
-  font-family: 'novecento_sans_widenormal', sans-serif;
-  font-size: 16pt;
-  color: white;  
+input[type="text"].pfield:-moz-placeholder { /* Firefox 18- */
+  color: #009ccc;  
 }
 
-input[type="text"]:-ms-input-placeholder,
-input[type="password"]:-ms-input-placeholder,
-textarea:-ms-input-placeholder {  
-  font-family: 'novecento_sans_widenormal', sans-serif;
-  font-size: 16pt;
-  color: white;  
+input[type="text"].pfield::-moz-placeholder {  /* Firefox 19+ */
+  color: #009ccc;  
 }
+
+input[type="text"].pfield:-ms-input-placeholder {  
+  color: #009ccc;  
+}
+
 
 acronym {
   border-bottom: none;
@@ -91,7 +110,7 @@ acronym {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0); 
     -webkit-border-radius: 0px;
     border-radius: 0px;
-	background: rgba(0,0,0,0)
+	background: rgba(0,0,0,0);
 }
  
 /* Handle */
@@ -513,6 +532,11 @@ acronym {
 }
 
 .page {}
+
+.editing {
+  display: none;
+}
+
 #proPct {
   width: 30%;
   height: auto;
@@ -523,11 +547,6 @@ acronym {
   height:auto;
 }
 
-.bio {
-  position: absolute;
-  margin-left: -5px;
-}
-
 #proBio {
   display: inline-block;
   position: fixed;
@@ -535,12 +554,30 @@ acronym {
   left: 35%;
   width: 100%;
 }
+
+.bio {
+  position: absolute;
+  margin-left: -5px;
+}
+
+.pfield {
+  color: #009ccc;
+  display: inline-block;
+  text-align: left;
+}
+
 #mname {
   font-size:28pt;
   color: #009ccc;
 }
+
+#mfname {
+  text-align: right;
+}
+
 .mname {
   display: inline-block;
+  width: 250px;
 }
 .edit {
   display: none;  
@@ -555,6 +592,38 @@ acronym {
 
 .skilltag.active.profile {
   visibility: visible;
+}
+
+input[type="text"].mname::-webkit-input-placeholder {
+  font-size: 28pt;
+}
+
+input[type="text"].mname:-moz-placeholder { /* Firefox 18- */
+  font-size: 28pt;  
+}
+
+input[type="text"].mname::-moz-placeholder {  /* Firefox 19+ */
+  font-size: 28pt;  
+}
+
+input[type="text"].mname:-ms-input-placeholder {  
+  font-size: 28pt;  
+}
+
+input[type="text"].protxt::-webkit-input-placeholder {
+  font-size: 18pt;
+}
+
+input[type="text"].protxt:-moz-placeholder { /* Firefox 18- */
+  font-size: 18pt;  
+}
+
+input[type="text"].protxt::-moz-placeholder {  /* Firefox 19+ */
+  font-size: 18pt;  
+}
+
+input[type="text"].protxt:-ms-input-placeholder {  
+  font-size: 18pt;  
 }
 
 #psbar {
@@ -591,6 +660,7 @@ acronym {
 #wlink {
   font-size: 14pt;
 } 
+
 #mlnlbl {
   color: #808080;
   display: inline-block;
@@ -599,7 +669,13 @@ acronym {
 #mlntxt {
   color: #009ccc;
   display: inline-block;
+  text-align: left;
 }
+
+#mlnwrap {
+  display: inline-block;
+}
+/*
 [contenteditable="true"]:active,
 [contenteditable="true"]:focus{
 border:none;
@@ -607,7 +683,8 @@ outline:none;
 }
 [contenteditable="true"]:focus::before{
 content:"Edit Me!";
-} 
+}
+*/ 
 #txtABio {
 
 }

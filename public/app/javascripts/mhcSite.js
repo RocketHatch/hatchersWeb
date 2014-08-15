@@ -1,7 +1,8 @@
 HPROG.site = {};  
 
 HPROG.site.toggleModal = function (display) {
-  if (display) {
+  show = ($('#logregarea').css("display")==='block'||$('#messageArea').css("visibility")==='visible')
+  if (show) {
     $('#glass').css("visibility","visible");
   } else {
     $('#glass').css("visibility","hidden");
@@ -36,9 +37,9 @@ HPROG.site.getDynHeight = function (el) {
   return height;
 };
 
-HPROG.site.toggleModal = function (display) {
-  HPROG.site.visible(display, '#glass');
-};
+//HPROG.site.toggleModal = function (display) {
+//  HPROG.site.visible(display, '#glass');
+//};
 
 HPROG.site.displayMessageBlock = function (display) {
   HPROG.site.visible(display, '#messageArea');
@@ -53,13 +54,14 @@ HPROG.site.displayMessageBlock = function (display) {
 HPROG.site.displayMessage = function (message, show)  {
   if (typeof show =='undefined') show = true;
   console.log("in the display message function: " + message);
-  if (show || (!show && !$('logregarea').css('display') === 'none')) {
-    HPROG.site.toggleModal(show);
-  }
+  //if (show || (!show && !$('logregarea').css('display') === 'none')) {
+  //  HPROG.site.toggleModal(show);
+  //}
   $('#msgBx').css('display','table');
   $('#inpBx').css('display','none');
   HPROG.site.displayMessageBlock(show);
   $('#mtxt').html(message);
+  HPROG.site.toggleModal(show);
 };
 
 HPROG.site.visible = function(display, elementId) {
@@ -92,27 +94,26 @@ HPROG.site.clearEMessage = function() {
 
 // -- Not used function as yet, to be reused or cleaned out -- /
 HPROG.site.displayContactBlock = function (display) {
-  HPROG.site.toggleModal(display);
   if (display) {
     $('#contactBlk').css("visibility","visible");
   } else {
     $('#contactBlk').css("visibility","hidden");
   }
+  HPROG.site.toggleModal(display);
   return false;
 };
 
-HPROG.site.displayCompatBlock = function (display) {
-  HPROG.site.toggleModal(display);
+HPROG.site.displayCompatBlock = function (display) { 
   if (display) {
     $('#compBlk').css("visibility","visible");
   } else {
     $('#compBlk').css("visibility","hidden");
   }
+  HPROG.site.toggleModal(display);
   return false;
 };
 
 HPROG.site.displayLogBox = function (display) {
-  HPROG.site.toggleModal(display);
   if (display) {
     $("#logregarea").css('display','block');
 	$("#log").css('display','block');
@@ -126,11 +127,11 @@ HPROG.site.displayLogBox = function (display) {
     $("#logregarea").css('display','none').removeClass('login');
     $("#picarea").css('display','none');	
   }
+  HPROG.site.toggleModal(display);
   return false;
 };
 
 HPROG.site.displayRegBox = function (display) {
-  HPROG.site.toggleModal(display);
   if (display) {  
 	$("#log").css('display','none');
 	$("#reg").css('display','block');
@@ -138,14 +139,14 @@ HPROG.site.displayRegBox = function (display) {
 	$("#logreghead").html('register');
     $("#picarea").css('display','inline-block');
     $('.mJoin').css('display','none');	
-  }  
+  }
+  HPROG.site.toggleModal(display);  
   return false;
 };
 
 HPROG.site.displayInputDialog = function (message, show)  {
   if (typeof show =='undefined') show = true;
   console.log(message);
-  HPROG.site.toggleModal(show);
   $("#logregarea").css('display','none');
   $('#msgBx').css('display','none');
   $('#messageArea').addClass('fpw');
@@ -156,6 +157,7 @@ HPROG.site.displayInputDialog = function (message, show)  {
   $('#inpBx').css('display','table');
   HPROG.site.displayMessageBlock(show);
   $('#frgtpw').attr('placeholder',message);
+  HPROG.site.toggleModal(show);
 };
 
 HPROG.site.resetInputDialog = function ()  {
@@ -191,24 +193,47 @@ HPROG.site.displayLink = function(ele, show) {
 
 HPROG.site.profileUpdate = function(property, nuval) {
   var member = RCSData.getCurrentMember();
+  if (!nuval) {
+    return;
+  }
   console.log("data: " + property + " : " + nuval); 
   if (member) {
     console.log("This is current member: " + JSON.stringify(RCSData.getCurrentMember()));
-	if (property.indexOf('.') > -1) {
-	  var props = property.split('.');
+	if (property.substr(0,4) === "http") {
+	  property = 'url';
 	}
-	var curVal = (props && props.length > 0) ? (member[props[0]])[props[1]] : member[property];
+	var curVal = property.substr(0,4) === "name" ? (member['name'])[property] : member[property];
 	console.log("curVal: " + curVal + " - nuval: " + nuval);
-	if ( curVal.toLowerCase() === nuval.toLowerCase() ) {
+	if ( curVal && curVal.toLowerCase() === nuval.toLowerCase()) {
 	  console.log("No change to property " + property);
     } else {
-      console.log("Field changed doing update -> " );	
-	  member[property] = nuval; //TODO move this to after confirmation of db update
+      console.log("Field changed doing update -> " );
+      if (property.substr(0,4) === "name") {
+        member.name[property.substr(5)] = nuval;
+      } else {	  
+	    member[property] = nuval; //TODO move this to after confirmation of db update
+	  }
 	  var data = {sid:MHC.session.sessionId,prop:property,nuval:nuval};
       HPROG.ajax.updateMemeber(data); 
     }
   }	
 };
+
+HPROG.site.resetEditing = function() {
+  // TODO do a test if there is an open edited field; show popup warning with buttons to save or cancel
+  $("#pPage").find('.editing').css('display','none').closest("div").find('.pfield').attr('disabled', true).attr('value','');
+  $("#pPage").find('.edit').css('display','none');  
+  $("#pPage").find('.mylnk').find('.pfield').addClass('clickable');
+}
+
+HPROG.site.refreshProfile = function() {
+  var member = RCSData.getCurrentMember();
+  $("#mfname").attr("placeholder",member.name.fname.toLowerCase());
+  $("#mlname").attr("placeholder",member.name.lname.toLowerCase());
+  $("#tagfld").attr("placeholder",member.tagline.toLowerCase());
+  $("#mlntxt").attr("placeholder",member.url.toLowerCase());
+  $("#mlntxt").attr("data",member.url.toLowerCase());
+}
 
 HPROG.site.doLogin = function(un, pw) {
   //console.log( "Doing JSON get login");

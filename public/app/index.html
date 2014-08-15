@@ -123,14 +123,18 @@
 			
 			<div id='proBio'>
 			  <div id='mname' class='bio'>
-			    <div id='mfname' class='mname pfield' data='name.fname'>{{currentMember.name.fname.toLowerCase()}}</div>
-				<div id='mlname' class='mname pfield' data='name.lname'>{{currentMember.name.lname.toLowerCase()}}</div>
+			    <input id='mfname' type='text' class='mname pfield' data='name.fname' disabled='disabled' placeholder='{{currentMember.name.fname.toLowerCase()}}'></input>
+				<input id='mlname' type='text' class='mname pfield' data='name.lname' disabled='disabled' placeholder='{{currentMember.name.lname.toLowerCase()}}'></input>
 			    <img class="edit" src="/images/edit3.png"/>
+				<img class="editing save" src="/images/editSave.png"/>
+				<img class="editing cancel" src="/images/editCan.png"/>
 			  </div>
 			  
 			  <div id='tag' class='bio'>
-			    <div  id='tagfld' data='tagline' class='protxt pfield'>"{{currentMember.tagline}}"</div>
+			    <input  id='tagfld' type='text' data='tagline' class='protxt pfield' disabled='disabled' placeholder="{{currentMember.tagline.toLowerCase()}}"></input>
 			    <img class="edit" src="/images/edit3.png"/>
+				<img class="editing save" src="/images/editSave.png"/>
+				<img class="editing cancel" src="/images/editCan.png"/>
 			  </div>
 			  <div id='psbar' class='bio'>
 				<div id='psk{{$index + 1}}' class='proskilltag' data-ng-repeat="skl in curMemSkills">
@@ -156,10 +160,15 @@
 				</div>
 			  </div>
 			  
-			  <div id='wlink' class='mylnk bio clickable' ng-hide="! currentMember.url">
+			  <div id='wlink' class='mylnk bio' ng-hide="! currentMember.url">
 				<div id='mlnlbl'>my site: </div>
-				<div id='mlntxt' class='pfield' data='{{currentMember.url}}'>{{currentMember.url}}</div>
-				<img class="edit" src="/images/edit3.png"/>
+				<div id='mlnwrap'>
+				  <input id='mlntxt' type='text' class='pfield clickable' disabled='disabled' data='{{currentMember.url}}' placeholder='{{currentMember.url.toLowerCase()}}'></input>
+				</div>  
+				  <img class="edit" src="/images/edit3.png"/>
+				  <img class="editing save" src="/images/editSave.png"/>
+				  <img class="editing cancel" src="/images/editCan.png"/>
+				
 			  </div>
 			</div>
 		</div>
@@ -213,7 +222,7 @@
 	      </div>
 		</div>
 		<div id='picarea'>
-		  <img id="baseimg" src="/images/faces_gr.png"/>
+		  <img id="baseimg" src="/images/members/hsPlaceHolder2.png"/>
           <canvas id='canvas'></canvas>
         </div>
 		<div id='nmSkills'>

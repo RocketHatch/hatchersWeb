@@ -19,7 +19,8 @@
     "busboy": "~0.2.5",
     "g": "~1.0.0",
     "mongode": "~0.1.5",
-    "nodemailer": "~0.6.5"
+    "nodemailer": "~0.6.5",
+	"postmark": "~0.2.5"
   },
   "devDependencies": {},
   "engines": {

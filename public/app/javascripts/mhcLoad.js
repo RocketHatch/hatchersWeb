@@ -153,22 +153,35 @@ $(document).ready(function(){
       }
      return false;
   });
-  $('.edit').live('click', function() {
-    if ($(this).hasClass('inedit')) {  
+  
+  $('.edit').live('click', function() {	  
+    $(this).closest("div").find('.pfield')
+	  .removeClass('clickable')
+	  .attr('disabled',false)
+	  //.attr('placeholder','')
+	  .attr('value',$(this).attr('data'));
+	$('.bio').find('.edit').css('display','none');
+    $(this).closest("div").find('.editing').css('display','inline-block');
+	
+  })
+
+  $('.editing').live('click', function() {
+    if ($(this).hasClass('save')) {  
       $(this).closest("div").find('.pfield').each(function() {
-	    console.log( "The Edit: " + $(this).html() + 
-		           " property: " + $(this).attr('data') );
-	    HPROG.site.profileUpdate($(this).attr('data'),($(this).html()).replace(/"/g, ''));
-      });
-	  //console.log("Member obj: " + JSON.stringify(RCSData.curMember));
-	  
-	  $(this).closest("div").find('.pfield').attr("contenteditable", false);
-	  $(this).removeClass('inedit')
-	} else {
-	  $(this).closest("div").find('.pfield').attr("contenteditable", true);
-	  $(this).addClass('inedit')
+	    console.log( "The new value: " + $(this).attr("value") + 
+		             " property: " + $(this).attr('data') );
+	    HPROG.site.profileUpdate($(this).attr('data'),($(this).attr("value").replace(/"/g, '')));
+		HPROG.site.refreshProfile();
+      });	  
+	} 	  
+    $(this).closest("div").find('.pfield').attr('disabled', true).attr('value','');
+	$(this).closest("div").find('.editing').css('display','none');
+	$(".bio").find('.edit').css('display','inline-block');
+	if ($(this).closest("div").hasClass('mylnk')) {
+	  $(this).closest("div").find('.pfield').addClass('clickable');
 	}
   })
+    
   $(".smLogos.smedia").live('click', function() {
     if ($(this).attr('data')) {
 	  //console.log($(this).attr('data'));
@@ -177,9 +190,10 @@ $(document).ready(function(){
       //HPROG.ajax.prepQuery($(this).attr('member'));	  
     }
   });	
-  $("#wlink").live('click', function() {
-    if ($('#mlntxt').attr('data')) {
-	  //console.log($(this).attr('data'));
+  $("#mlnwrap").live('click', function() {
+    console.log("Clicked the member's link: " + $('#mlntxt').attr('data'));
+    if ($('#mlntxt').attr('data') && $('#mlntxt').hasClass('clickable')) {
+	  console.log("Clicked the member's link: " + $('#mlntxt').attr('data'));
 	  window.open($('#mlntxt').attr('data'));
 	  //console.log($(this).attr('member'));
       //HPROG.ajax.prepQuery($(this).attr('member'));	  
@@ -309,6 +323,7 @@ $(document).ready(function(){
       //alert('Back button was pressed.');
 	  HPROG.site.displayMessage("Forget Message", false);
 	  HPROG.site.clearEMessage();
+	  HPROG.site.resetEditing();
 	  HPROG.site.togglePage($("#mPage"), $("#pPage"));
 	  window.history.pushState('forward', null, './index.html');
     });
@@ -375,10 +390,8 @@ function sizeProPage(est) {
   var elh = parseInt($("#proPct").css("height"), 10);
   if (est) {
     elh = est;
-  }
-  
+  }  
   $("#proBio").css('height',elh+'px');
-
   $("#mname").css('top',-(elh*.05)+'px');
   $("#tag").css('top',(elh*.12)+'px');
   $("#psbar").css('top',(elh*.25)+'px');
