@@ -16,14 +16,14 @@ While this project in its present state is specific to the Huntsville Metropolit
 * CSS abstraction for allowing designers to put their own design on this interface
 * And Architects that can design modular components for build community Web Applications
 
-The general philosophy, though not in much in evidence currently,is to build (and refactor towards) "simple fuctions" that work together to provide a lot of functionality -  Watch this video! ["Simple Made Easy"] (http://www.infoq.com/presentations/Simple-Made-Easy)
+The general philosophy, though not in much in evidence currently, is to build (and refactor towards) "simple functions" that work together to provide a lot of functionality -  Watch this video! ["Simple Made Easy"] (http://www.infoq.com/presentations/Simple-Made-Easy)
 
-This project is the brain child of [Antonio Montoya] (antoniomontoya.com) and the initial graphic design was done by Tara Anzalone of [Modern & Smart] (http://hellotarra.com/). But mostly like all project of this nature we stand on the shoulders of giants and we borrowed heavily from previos efforts spcifically in:
+This project is the brainchild of [Antonio Montoya] (antoniomontoya.com) and Tara Anzalone of [Modern & Smart] (http://hellotarra.com/), and the initial graphic design was Tara's creation. But mostly like all projects of this nature we stand on the shoulders of giants borrowed heavily from previous efforts specifically in:
 * [Portland OR] (http://prtlnd.com/)
 * [Nashville TN] (http://nshvll.org/)
 * [Omaha NE] (http://omawho.com/)
 
-Be sure to read our [git wiki] (https://github.com/RocketHatch/hatchersWeb/wiki/Hatchers-Vision)
+Be sure to read [Hatchers-Vision in the git wiki] (https://github.com/RocketHatch/hatchersWeb/wiki/Hatchers-Vision).
 
 If you are interested in being a part of this project contact, Larry Mason @ larry.mason@alltowntech.com.
  
