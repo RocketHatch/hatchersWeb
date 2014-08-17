@@ -8,7 +8,7 @@ The Rocket Hatch Creative Community Web app
 Our Open source project is now on **Heroku**<br>
 **[RocketHatchers.us] (http://rockethatchers.us)**<p>
 
-Open source project for creative communities. Looking for project team members.  
+<i><b>This open source project for creative communities is Looking for project team members.</b></i>  
 
 While this project in its present state is specific to the Huntsville Metropolitan area, the larger goal of this project is to provide template source code for communities of all kinds to share the Faces, Places, Ideas and Events that make each community special. To do that we need developers. We are specifically interested in attracting developers who would like to contribute in the following areas:
 
