@@ -8,13 +8,13 @@ The Rocket Hatch Creative Community Web app
 Our Open source project is now on **Heroku**<br>
 **[RocketHatchers.us] (http://rockethatchers.us)**<p>
 
-<i><b>This open source project for creative communities is Looking for project team members.</b></i>  
+<i><b>This open source project for creative communities is looking for project team members.</b></i>  
 
 While this project in its present state is specific to the Huntsville Metropolitan area, the larger goal of this project is to provide template source code for communities of all kinds to share the Faces, Places, Ideas and Events that make each community special. To do that we need developers. We are specifically interested in attracting developers who would like to contribute in the following areas:
 
-* Programming APIs so this project can be apart of custom software solutions
-* CSS abstraction for allowing designers to put their own design on this interface
-* And Architects that can design modular components for build community Web Applications
+* Programming APIs so this project can be part of custom software solutions
+* CSS abstraction for allowing designers create their own design and interfaces
+* Architects that can design modular components for building community Web Applications
 
 The general philosophy, though not in much in evidence currently, is to build (and refactor towards) "simple functions" that work together to provide a lot of functionality -  Watch this video! ["Simple Made Easy"] (http://www.infoq.com/presentations/Simple-Made-Easy)
 
