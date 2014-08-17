@@ -18,11 +18,11 @@ While this project in its present state is specific to the Huntsville Metropolit
 
 The general philosophy, though not in much in evidence currently,is to build (and refactor towards) "simple fuctions" that work together to provide a lot of functionality -  Watch this video! ["Simple Made Easy"] (http://www.infoq.com/presentations/Simple-Made-Easy)
 
-This project is the brain child of Antonio Montoya, though borrow heavily from previos efforts spcifically in:
+This project is the brain child of [Antonio Montoya] (antoniomontoya.com) and the initial graphic design was done by Tara Anzalone of [Modern & Smart] (http://hellotarra.com/). But mostly like all project of this nature we stand on the shoulders of giants and we borrowed heavily from previos efforts spcifically in:
 * [Portland OR] (http://prtlnd.com/)
 * [Nashville TN] (http://nshvll.org/)
-* Omaha NE] (http://omawho.com/)
+* [Omaha NE] (http://omawho.com/)
  
-The initial Graphic Design was done by Tara Anzalone of [Modern & Smart] (http://hellotarra.com/)
+<h3>But most of all we look forward to working with you to help "build local community, globally!"</h3>
 
 
