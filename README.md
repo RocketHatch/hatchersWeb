@@ -8,7 +8,7 @@ The Rocket Hatch Creative Community Web app
 Our Open source project is now on **Heroku**<br>
 **[RocketHatchers.us] (http://rockethatchers.us)**<p>
 
-Open source project for creative communities. Looking for project team members. If you are interested in being a part of this project contact, Larry Mason @ larry.mason@alltowntech.com. 
+Open source project for creative communities. Looking for project team members.  
 
 While this project in its present state is specific to the Huntsville Metropolitan area, the larger goal of this project is to provide template source code for communities of all kinds to share the Faces, Places, Ideas and Events that make each community special. To do that we need developers. We are specifically interested in attracting developers who would like to contribute in the following areas:
 
@@ -22,6 +22,10 @@ This project is the brain child of [Antonio Montoya] (antoniomontoya.com) and th
 * [Portland OR] (http://prtlnd.com/)
 * [Nashville TN] (http://nshvll.org/)
 * [Omaha NE] (http://omawho.com/)
+
+Be sure to read our [git wiki] (https://github.com/RocketHatch/hatchersWeb/wiki/Hatchers-Vision)
+
+If you are interested in being a part of this project contact, Larry Mason @ larry.mason@alltowntech.com.
  
 <h3>But most of all we look forward to working with you to help "build local community, globally!"</h3>
 
