@@ -22,7 +22,8 @@ HPROG.ajax.prepQuery = function(memberData) {
 
 HPROG.ajax.insertMemeber = function(data) {
   var dataS = JSON.stringify(data);
-  console.log( "The data sent: " + dataS);
+  console.log( "The data to send: " + dataS);
+   
   $.ajax({
     type: 'POST',
     url: '/register',

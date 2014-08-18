@@ -221,7 +221,8 @@ HPROG.site.profileUpdate = function(property, nuval) {
 
 HPROG.site.resetEditing = function() {
   // TODO do a test if there is an open edited field; show popup warning with buttons to save or cancel
-  $("#pPage").find('.editing').css('display','none').closest("div").find('.pfield').attr('disabled', true).attr('value','');
+  $("#pPage").find('.editing').css('display','none').closest("div")
+      .find('.pfield').attr('disabled', true).attr('value','');
   $("#pPage").find('.edit').css('display','none');  
   $("#pPage").find('.mylnk').find('.pfield').addClass('clickable');
 }
@@ -306,9 +307,56 @@ HPROG.site.validateEMail = function(expr) {
   return pattern.test(expr);
 }
 
-  
+HPROG.site.validateLink = function(expr) {
+var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/
+  return pattern.test(expr);
+}
 
+HPROG.site.validateLogReg = function() {
+  var retval = false;
+  var lst = [];
+  if ($('#logregarea').hasClass('login')) {
+    lst = HPROG.site.validateLoginForm();
+	//console.log("Login form fields: " + lst);
+  } else if ($('#logregarea').hasClass('register')) {
+    lst = HPROG.site.validateRegForm();
+	//console.log("Register form fields: " + lst);
+  }
+  return lst.length === 0;
+}
 
+HPROG.site.validateLoginForm = function() {
+  var listInvalid = [];
+  if (!$('#untxt').attr('value') || ! HPROG.site.validateEMail($('#untxt').attr('value'))) {
+	listInvalid.push("uid");
+  }
+  if (!$('#pwtxt').attr('value')) {
+    listInvalid.push("password");
+  }
+  return listInvalid;    
+} 
+
+HPROG.site.validateRegForm = function() {
+  var listInvalid = [];
+  if (!$('#regfn').attr('value') && !($('#regln').attr('value'))) {
+	listInvalid.push("name");
+  }
+  if (! HPROG.site.validateEMail($('#regeml').attr('value'))) {
+	listInvalid.push("uid");
+  }
+  if ($('#regweb').attr('value')) {
+    if(! HPROG.site.validateLink($('#regweb').attr('value'))) {
+	  listInvalid.push("link");
+	}
+  }
+  if (!$('#regpw').attr('value') || $('#regpw').attr('value') !== $('#cregpw').attr('value')) {
+	listInvalid.push("password");
+  }
+  if (!$('#regcode').attr('value') || $.sha256($('#regcode').attr('value')) !== '58c37f448816d73a87e14bd72d944af9da100e31addd893f512b3d118f32e14a') {
+	listInvalid.push("access");
+  }
+  return listInvalid;  
+}
 //HPROG.site.displayMessage = function (message)  {
 //  alert(message);
 //};

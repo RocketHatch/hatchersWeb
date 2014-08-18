@@ -201,11 +201,18 @@ acronym {
   width:90px;
   height:100%;
 }
-#bin {
-  width:75px;
+#bmu {
+  width:73px;
   height:100%;
 }
-
+#bco {
+  width:107px;
+  height:100%;
+}
+#bme {
+  width:67px;
+  height:100%;
+}
 #bct {
   width:66px;
   height:100%;
@@ -390,7 +397,7 @@ acronym {
 }*/
 
 .skilltag.pu:hover { 
-  background: rgba(200,200,200,.5);  
+  background: #50adc9;  
 }
 
 .skilltag.main:hover {
@@ -933,6 +940,10 @@ input.log {
   margin-left: 10%;
   margin-right: 10%;
   background-color: #fff;
+}
+
+#gitlnk {
+  color: #000080;
 }
 
 #mtxt {

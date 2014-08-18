@@ -1,4 +1,5 @@
 var RCSData = {
+  curTestor : false,
   curMember : null,
   curSklList : [],
   curMbrList : [],  

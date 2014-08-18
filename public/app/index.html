@@ -46,7 +46,9 @@
 		  <div id="bhm" class="rhmenubutn rhlink clickable">Home</div>
 		  <div id="bvl" class="rhmenubutn rhlink clickable">Values</div>
 		  <div id="bcm" class="rhmenubutn">Community</div>
-		  <div id="bin" class="rhmenubutn rhlink clickable">Initiatives</div>
+		  <div id="bmu" class="rhmenubutn rhlink clickable">Meetups</div>
+		  <div id="bco" class="rhmenubutn rhlink clickable">COSTARTERS</div>
+		  <div id="bme" class="rhmenubutn rhlink clickable">Mentors</div>
 		  <div id="bct" class="rhmenubutn rhlink clickable">Contact</div>
 		</div>		
       </div>
@@ -125,16 +127,16 @@
 			  <div id='mname' class='bio'>
 			    <input id='mfname' type='text' class='mname pfield' data='name.fname' disabled='disabled' placeholder='{{currentMember.name.fname.toLowerCase()}}'></input>
 				<input id='mlname' type='text' class='mname pfield' data='name.lname' disabled='disabled' placeholder='{{currentMember.name.lname.toLowerCase()}}'></input>
-			    <img class="edit" src="/images/edit3.png"/>
-				<img class="editing save" src="/images/editSave.png"/>
-				<img class="editing cancel" src="/images/editCan.png"/>
+			    <img class="edit" alt="Edit" src="/images/edit3.png"/>
+				<img class="editing save" alt="Save" src="/images/editSave.png"/>
+				<img class="editing cancel" alt="Cancel" src="/images/editCan.png"/>
 			  </div>
 			  
 			  <div id='tag' class='bio'>
 			    <input  id='tagfld' type='text' data='tagline' class='protxt pfield' disabled='disabled' placeholder="{{currentMember.tagline.toLowerCase()}}"></input>
-			    <img class="edit" src="/images/edit3.png"/>
-				<img class="editing save" src="/images/editSave.png"/>
-				<img class="editing cancel" src="/images/editCan.png"/>
+			    <img class="edit" alt="Edit" src="/images/edit3.png"/>
+				<img class="editing save" alt="Save" src="/images/editSave.png"/>
+				<img class="editing cancel" alt="Cancel" src="/images/editCan.png"/>
 			  </div>
 			  <div id='psbar' class='bio'>
 				<div id='psk{{$index + 1}}' class='proskilltag' data-ng-repeat="skl in curMemSkills">
@@ -165,9 +167,9 @@
 				<div id='mlnwrap'>
 				  <input id='mlntxt' type='text' class='pfield clickable' disabled='disabled' data='{{currentMember.url}}' placeholder='{{currentMember.url.toLowerCase()}}'></input>
 				</div>  
-				  <img class="edit" src="/images/edit3.png"/>
-				  <img class="editing save" src="/images/editSave.png"/>
-				  <img class="editing cancel" src="/images/editCan.png"/>
+				  <img class="edit" alt="Edit" src="/images/edit3.png"/>
+				  <img class="editing save" alt="Save" src="/images/editSave.png"/>
+				  <img class="editing cancel" alt="Cancel" src="/images/editCan.png"/>
 				
 			  </div>
 			</div>
@@ -219,6 +221,7 @@
             <input id="regweb" type="text" class='reg' placeholder="personal web site"></input>
             <input id="regpw" type="password" class='reg' placeholder="password"></input>
             <input id="cregpw" type="password" class='reg' placeholder="confirm"></input>
+			<input id="regcode" type="text" class='reg' placeholder="access code"></input>
 	      </div>
 		</div>
 		<div id='picarea'>
@@ -237,7 +240,7 @@
 		<div id="pwreset" class="mJoin clickable log"> forgot password? </div>
         <p id="logregcan" class="mDone clickable"> cancel </p>
 	    <p id="logregsep" class="mDone"> | </p>
-	    <p id="logregsend" class="mDone clickable"> send </p>
+	    <p id="logregsend" class="mDone clickable unenabled"> send </p>
 		<div id="logregjoin" class="mJoin clickable log"> join the community </div>
       </div>
     </div>

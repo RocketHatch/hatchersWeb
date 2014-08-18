@@ -31,9 +31,13 @@ $(document).ready(function(){
   })
   $("#logregcan").live('click', function() {
     $('#logregarea').removeClass('login').removeClass('register');
+	$('#logregsend').addClass('unenabled');
     HPROG.site.displayLogBox(false);
   })
   $('#logregsend').live('click', function() {
+    if ($(this).hasClass('unenabled')) {
+	  return false;
+	}
     if ($("#logreghead").html() === 'login') {
 	  HPROG.site.doLogin($("#untxt").attr('value'),$.sha256($("#pwtxt").attr('value')));
 	} else if ($("#logreghead").html() === 'register') {
@@ -54,12 +58,17 @@ $(document).ready(function(){
 							   $("#regtag").attr('value'), 
 							   $("#regweb").attr('value'), 
 							   $.sha256($("#regpw").attr('value')));  
-    }	  
+    }
+    $(this).addClass('unenabled');	
   })
   $('#logregjoin').live('click', function() {
+    HPROG.site.displayMessage(testorMessage(),true);
     $('#logregarea').removeClass('login').addClass('register');
+	//HPROG.site.displayMessage("This function only works for testing team members",true);
+	//HPROG.site.displayInputDialog("Alpha Test Code", true);
 	HPROG.site.displayRegBox(true);
   })
+  
   $('#frgtpw').live('keyup', function() {  
 	if (HPROG.site.validateEMail($(this).attr('value'))) {
 	  $('#messsend').removeClass('unenabled');
@@ -67,6 +76,22 @@ $(document).ready(function(){
 	  $('#messsend').addClass('unenabled');
 	}
   })
+  
+  $('#inputarea').live('keyup', function() {
+	if (HPROG.site.validateLogReg()) {
+	  $('#logregsend').removeClass('unenabled');
+	} else {
+	  $('#logregsend').addClass('unenabled');
+	}
+  })
+  
+  $('#reg').live('keyup', function() {  
+	if (HPROG.site.validateEMail($(this).attr('value'))) {
+	  $('#messsend').removeClass('unenabled');
+	} else {
+	  $('#messsend').addClass('unenabled');
+	}
+  })  
   $('#messsend.fgtpw').live('click', function() {
     if (!$(this).hasClass('unenabled')) {  
 	  HPROG.site.emailForgotMessage($("#frgtpw").attr('value'));
@@ -181,7 +206,7 @@ $(document).ready(function(){
 	  $(this).closest("div").find('.pfield').addClass('clickable');
 	}
   })
-    
+  
   $(".smLogos.smedia").live('click', function() {
     if ($(this).attr('data')) {
 	  //console.log($(this).attr('data'));
@@ -189,7 +214,17 @@ $(document).ready(function(){
 	  //console.log($(this).attr('member'));
       //HPROG.ajax.prepQuery($(this).attr('member'));	  
     }
-  });	
+  });
+
+    $("#gitlnk").live('click', function() {
+    if ($(this).attr('data')) {
+	  //console.log($(this).attr('data'));
+	  window.open($(this).attr('data'));
+	  //console.log($(this).attr('member'));
+      //HPROG.ajax.prepQuery($(this).attr('member'));	  
+    }
+  });
+  
   $("#mlnwrap").live('click', function() {
     console.log("Clicked the member's link: " + $('#mlntxt').attr('data'));
     if ($('#mlntxt').attr('data') && $('#mlntxt').hasClass('clickable')) {
@@ -209,7 +244,10 @@ $(document).ready(function(){
   });
   
   $("#messcan.msg").live('click', function() {
+    $('#mtxt').css('top','10px');
+	$('#gitlnk').remove();
     HPROG.site.displayMessage("Forget Message", false);
+	
   });
   $("#messcan.fgtpw").live('click', function() {
     HPROG.site.displayMessage("Forget Message", false);
@@ -274,7 +312,9 @@ $(document).ready(function(){
        $('#sk0').removeClass('active');		   
 	 } else {
 	   $(this).css("backgroud",'#009ccc');
-	   $(this).removeClass('active');
+	   if (!$(this).hasClass('profile')) {
+	     $(this).removeClass('active');
+	   }
 	   var n = ( $('#skillbar').find('.active').length );
 	   if (n < 1) {
 	     $("#sk0").trigger('click');
@@ -417,6 +457,14 @@ function initializeMap() {
   //});
 
   //heatmap.setMap(map);
+} 
+
+function testorMessage() {
+  $("#mtxt").css('top','10px');
+  $("<div id='gitlnk' class='clickable' data='http://github.com/RocketHatch/hatchersWeb'>github.com/RocketHatch/hatchersWeb</div>").appendTo( $("#messTxt") );
+  return "This application is in development. Joining as an alpha testor is by innvitation. " +
+               "If you are interested in joining the testing and/or development team check our Github " +
+               "page at:" 			   
 }
 
 //function linkIn(event) { HPROG.site.displayLink(event.target, 'true'); };
