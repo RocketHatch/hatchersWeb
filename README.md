@@ -18,7 +18,7 @@ While this project in its present state is specific to the Huntsville Metropolit
 
 The general philosophy, though not in much in evidence currently, is to build (and refactor towards) "simple functions" that work together to provide a lot of functionality -  Watch this video! ["Simple Made Easy"] (http://www.infoq.com/presentations/Simple-Made-Easy)
 
-This project is the brainchild of [Antonio Montoya] (antoniomontoya.com) and Tara Anzalone of [Modern & Smart] (http://hellotarra.com/), and the initial graphic design was Tara's creation. [Larry Mason](HungryProgrammer.com) has been dthe full stack developer. But mostly like all projects of this nature we stand on the shoulders of giants and have borrowed heavily from previous efforts specifically in:
+This project is the brainchild of [Antonio Montoya] (antoniomontoya.com) and Tara Anzalone of [Modern & Smart] (http://hellotarra.com/), and the initial graphic design was Tara's creation. [Larry Mason](HungryProgrammer.com) has been doing full stack development. But mostly like all projects of this nature we stand on the shoulders of giants and have borrowed heavily from previous efforts specifically in:
 * [Portland OR] (http://prtlnd.com/)
 * [Nashville TN] (http://nshvll.org/)
 * [Omaha NE] (http://omawho.com/)
