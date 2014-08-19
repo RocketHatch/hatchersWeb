@@ -5,7 +5,7 @@ hatchersWeb
 
 The Rocket Hatch Creative Community Web app
 
-Our Open source project is now on **Heroku**<br>
+Our Open source prototype project is now on **Heroku**<br>
 **[RocketHatchers.us] (http://rockethatchers.us)**<p>
 
 <i><b>This open source project for creative communities is looking for project team members.</b></i>  
