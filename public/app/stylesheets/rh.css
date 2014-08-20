@@ -55,6 +55,10 @@ input[type="text"].protxt {
   font-size: 18pt;
 }
 
+input[type="text"]#tlsrch {
+  font-size: 12pt;
+}
+
 input:focus { 
   outline: none;
 } 
@@ -154,7 +158,6 @@ acronym {
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   font-size:10pt;
-  display: table;
   z-index: 95;
   top: 0;
 }
@@ -164,9 +167,13 @@ acronym {
 }
  
 .rhmenubutn {
+  width:60px;
+  height:100%;
   display: inline-block;
   padding-top: 5px; 
   background-color: #626971;
+  position: relative;
+  text-align: center;
   transition: 1s;
   -moz-transition: 1s;
   -webkit-transition: 1s; 
@@ -180,42 +187,63 @@ acronym {
 }
 
 #rhmenubar {
-  display: table-row;
-  text-align: center;
-  v-align: middle;
   background-color: #626971;
 }
 
-#bhm {
-  width:58px;
-  height:100%
+
+
+#tmf {
+  left: 35%
+}		  
+#tmp {
+  left: 39%
 }
-		  
-#bvl {
-  width:61px;
-  height:100%;
+#tmi { 
+  left: 43%
+}
+#tme {
+  left: 47%
 }
 
-#bcm {
+#tmsf {
+  height:100%;
+  position: relative;
+  left: 52%;
+  margin-left: 25px;
+  display: inline-block;
+}
+
+#tlsrch {
+  display: inline-block;
+}
+
+.simg {
+  display: inline-block;
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+  left: -6px;
+}
+
+.mimg {
+  position: relative;
+  top: 6px;
+  left: 6px;
+}
+
+#tmlp {
+  width: auto;
+  padding: 3px;
+  margin-right: 4px;  
+  height:100%;
+  float: right;
+  display: inline-block;
+}
+
+.rhmenubutn.active {
   background-color: #57bcdb;
-  width:90px;
-  height:100%;
-}
-#bmu {
-  width:73px;
-  height:100%;
-}
-#bco {
-  width:107px;
-  height:100%;
-}
-#bme {
-  width:67px;
-  height:100%;
-}
-#bct {
-  width:66px;
-  height:100%;
 }
 
 /*-- Main Page Head --*/
@@ -719,8 +747,8 @@ content:"Edit Me!";
 }
 
 #logregarea.login {
-  top: 33px;
-  right: 10px;
+  top: 29px;
+  right: 0;
   height: 0;
   width: 25%;
 }
@@ -944,6 +972,8 @@ input.log {
 
 #gitlnk {
   color: #000080;
+  position: relative;
+  top: 10px;
 }
 
 #mtxt {

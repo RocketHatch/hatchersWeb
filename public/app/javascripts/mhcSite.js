@@ -285,7 +285,8 @@ HPROG.site.logSuccess = function(data) {
                               })
 		     };
   MHC.setSession(sess);
-  $('#lrtname').html(MHC.session.member.name.fname + " " + MHC.session.member.name.lname);
+  $('#tmlp').html(MHC.session.member.name.fname + " " + MHC.session.member.name.lname)
+            .removeClass('lgcmd').addClass('profile');
   return false;
 }
 

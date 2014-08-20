@@ -25,7 +25,7 @@ $(document).ready(function(){
      HPROG.site.displayContactBlock(false);
      return false;
   })
-  $("#pgLogReg").live('click', function() {
+  $(".lgcmd").live('click', function() {
     $('#logregarea').removeClass('register').addClass('login');
     HPROG.site.displayLogBox(true);
   })
