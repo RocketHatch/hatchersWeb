@@ -186,6 +186,10 @@ acronym {
  -webkit-transition: 1s;
 }
 
+.lgcmd:hover, .procmd:hover {
+  background-color: #7c8a8e;
+}
+
 #rhmenubar {
   background-color: #626971;
 }
@@ -236,10 +240,20 @@ acronym {
 #tmlp {
   width: auto;
   padding: 3px;
-  margin-right: 4px;  
+  margin-right: 10px;  
   height:100%;
   float: right;
   display: inline-block;
+}
+
+#pdsubmenu {
+  width: 200px;
+  background: #626971;
+  float: right;
+}
+
+.pdmenuitem {
+  margin-left: 5px;
 }
 
 .rhmenubutn.active {

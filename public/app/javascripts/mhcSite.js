@@ -41,6 +41,22 @@ HPROG.site.getDynHeight = function (el) {
 //  HPROG.site.visible(display, '#glass');
 //};
 
+HPROG.site.displaypdmenu = function(elid) {
+  var result = $.grep(Menus, function(e){ return e.id === elid; });
+  var objs = result[0].subGroup;
+  $.each(objs, function(index, value) {
+    //console.log("Sub menu: " + value.name);
+	//value[value.id]([value.desc]);
+	$('#pdsubmenu').append('<div id="'+value.id+'" class="pdmenuitem clickable" >'+value.name+'</div>');
+	$("#"+value.id).live('click', function() {
+      value[value.id]([value.desc]);  	  
+      $('#pdsubmenu').css('visibility','hidden');
+	  $('#pdsubmenu').find('.pdmenuitem').remove();;
+    });
+	$('#pdsubmenu').css('visibility','visible');
+  });
+}
+
 HPROG.site.displayMessageBlock = function (display) {
   HPROG.site.visible(display, '#messageArea');
   if (display) {
@@ -286,7 +302,7 @@ HPROG.site.logSuccess = function(data) {
 		     };
   MHC.setSession(sess);
   $('#tmlp').html(MHC.session.member.name.fname + " " + MHC.session.member.name.lname)
-            .removeClass('lgcmd').addClass('profile');
+            .removeClass('lgcmd').addClass('procmd');
   return false;
 }
 

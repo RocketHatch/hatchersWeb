@@ -29,6 +29,13 @@ $(document).ready(function(){
     $('#logregarea').removeClass('register').addClass('login');
     HPROG.site.displayLogBox(true);
   })
+  $(".procmd").live('click', function() {    
+    HPROG.site.displaypdmenu($(this).attr('id'));
+  })
+  $(".mcmd").live('click', function() {
+    HPROG.site.displaypdmenu($(this).attr('id'));
+  })
+
   $("#logregcan").live('click', function() {
     $('#logregarea').removeClass('login').removeClass('register');
 	$('#logregsend').addClass('unenabled');
