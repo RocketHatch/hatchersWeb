@@ -28,6 +28,7 @@ $(document).ready(function(){
   $(".lgcmd").live('click', function() {
     $('#logregarea').removeClass('register').addClass('login');
     HPROG.site.displayLogBox(true);
+	$('#pdsubmenu').find('.pdmenuitem').remove();
   })
   $(".procmd").live('click', function() {    
     HPROG.site.displaypdmenu($(this).attr('id'));
@@ -277,7 +278,8 @@ $(document).ready(function(){
     }
 	var mem = JSON.parse($(this).attr('member'));
 	console.log("member id = " + mem._id);	
-    HPROG.site.togglePage($("#pPage"), $("#mPage"), true, ckCurUserIsCurMem(mem._id));   	
+    HPROG.site.togglePage($("#pPage"), $("#mPage"), true, ckCurUserIsCurMem(mem._id));
+    sizeProField(mem)   	
   })
   $("#about").click(function(){
      $("#pVersion").html(navigator.appVersion);
@@ -445,6 +447,18 @@ function sizeProPage(est) {
   $("#rhbar").css('top',(elh*.42)+'px');
   $("#smbar").css('top',(elh*.65)+'px');
   $("#wlink").css('top',(elh*.9)+'px');
+
+}
+
+function sizeProField(member) {
+  var metrx = HPROG.site.textMetrx(member.name.fname, "28pt novecento_sans_widenormal");
+  $("#mfname").css("width", metrx.w + 5);
+  metrx = HPROG.site.textMetrx(member.name.lname, "28pt novecento_sans_widenormal");
+  $("#mlname").css("width", metrx.w + 10);
+  metrx = HPROG.site.textMetrx(member.tagline, "18pt novecento_sans_widenormal");
+  $("#tagfld").css("width", metrx.w + 10);
+  metrx = HPROG.site.textMetrx(member.url, "16pt novecento_sans_widenormal");
+  $("#mlntxt").css("width", metrx.w + 10);
 }
 
 function initializeMap() {

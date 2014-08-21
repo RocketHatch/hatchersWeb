@@ -77,6 +77,8 @@ input[type="text"]::-webkit-input-placeholder,
 input[type="password"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: white;
+  padding: 0;
+  letter-spacing: 0;
   font-family: 'novecento_sans_widenormal', sans-serif;
   /*font-family: 'Raleway', sans-serif;*/
   font-size: 16pt;
@@ -249,7 +251,10 @@ acronym {
 #pdsubmenu {
   width: 200px;
   background: #626971;
-  float: right;
+  position: relative;
+  top: 0;
+  left: 0;
+  
 }
 
 .pdmenuitem {
@@ -620,9 +625,9 @@ acronym {
   color: #009ccc;
 }
 
-#mfname {
+/*#mfname {
   text-align: right;
-}
+}*/
 
 .mname {
   display: inline-block;

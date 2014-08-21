@@ -9,7 +9,7 @@ $(document).ready(function(){
   });
 
   $("#nBx").click(function(){ 
-    window.location = "http://localhost:11329/MHCreatives/index.html"; // TODO need to adjust for run time link
+    window.location = "http://rockethaters.us/index.html"; // TODO need to adjust for run time link
   });
 });
 

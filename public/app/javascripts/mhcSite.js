@@ -37,21 +37,45 @@ HPROG.site.getDynHeight = function (el) {
   return height;
 };
 
+HPROG.site.textMetrx = function (str, font) { 
+  console.log("String: " + str);
+  var el = $("<div>"+str+"</div>").css({"width":"auto","float":"left",
+            "font":font,"white-space": "nowrap","visibility":"hidden"})
+			.appendTo("body");
+  var width = el.width();
+  var height = el.height();
+  el.remove();
+  return {w: width, h: height};
+};
+
+/*
+var f = font || '12px arial',
+      o = $('<div>' + this + '</div>')
+            .css({'position': 'absolute', 'float': 'left', 'white-space': 'nowrap', 'visibility': 'hidden', 'font': f})
+            .appendTo($('body')),
+      w = o.width();
+
+  o.remove();
+*/
+
 //HPROG.site.toggleModal = function (display) {
 //  HPROG.site.visible(display, '#glass');
 //};
 
 HPROG.site.displaypdmenu = function(elid) {
+  var rect = $('#'+elid)[0].getBoundingClientRect();
+  console.log("Top left corner: " + rect.top + " : " + rect.left);
   var result = $.grep(Menus, function(e){ return e.id === elid; });
   var objs = result[0].subGroup;
+  $('#pdsubmenu').css('left',rect.left+'px').find('.pdmenuitem').remove();
   $.each(objs, function(index, value) {
     //console.log("Sub menu: " + value.name);
-	//value[value.id]([value.desc]);
+	//value[value.id]([value.desc]);	
 	$('#pdsubmenu').append('<div id="'+value.id+'" class="pdmenuitem clickable" >'+value.name+'</div>');
 	$("#"+value.id).live('click', function() {
       value[value.id]([value.desc]);  	  
       $('#pdsubmenu').css('visibility','hidden');
-	  $('#pdsubmenu').find('.pdmenuitem').remove();;
+	  //$('#pdsubmenu').find('.pdmenuitem').remove();
     });
 	$('#pdsubmenu').css('visibility','visible');
   });
