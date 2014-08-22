@@ -3,34 +3,51 @@
 	  name: 'Faces',
       desc: 'Members',
       id: 'tmf',
+	  pos: '', //position in percentage along the menu bar from left;
+	  cmd: function(args) { 
+	    console.log("Go to Faces Page " + args[0]); 
+		if $('#tmf').hasClass("active") {
+		  return;
+		} else {
+		  // instruction that this triger event will do
+		}	
+	  },
 	  subGroup: [
-        {
+        /*{
           name: 'Faces item 1',
           desc: 'Demo',
 		  id: 'f1cmd',
-		  f1cmd: function(args) { console.log("Faces item 1 " + args[0]); }
-
+		  cmd: function(args) { console.log("Faces item 1 " + args[0]); }
         },
 		{
           name: 'Faces item 2',
           desc: 'Demo',
 		  id: 'f2cmd',
-		  f2cmd: function(args) { console.log("Faces item 2 " + args[0]); }
+		  cmd: function(args) { console.log("Faces item 2 " + args[0]); }
         },
 		{
           name: 'Faces item 3',
           desc: 'Demo',
 		  id: 'f3cmd',
 		  f3cmd: function(args) { console.log("Faces item 3 " + args[0]); }
-        }
+        }*/
 	  ]
 	},
 	{      
 	  name: 'Place',
       desc: 'Map Sponsors',
       id: 'tmp',
+	  pos: '', //position in percentage along the menu bar from left;
+	  cmd: function(args) { 
+	    console.log("Go to Places Page " + args[0]); 
+		if $('#tmp').hasClass("active") {
+		  return;
+		} else {
+		  // instruction that this triger event will do
+		}	
+	  },	  
 	  subGroup: [
-        {
+        /*{
           name: 'Places item 1',
           desc: 'Demo',
 		  id: 'p1cmd',
@@ -47,51 +64,69 @@
           desc: 'Demo',
 		  id: 'p3cmd',
 		  p3cmd: function(args) { console.log("Places 3 " + args[0]); }
-        }
+        }*/
 	  ]
 	},
 	{      
 	  name: 'Ideas',
       desc: 'Idea Sharing Board',
       id: 'tmi',
+	  pos: '', //position in percentage along the menu bar from left;
+	  cmd: function(args) { 
+	    console.log("Go to Ideas Page " + args[0]); 
+		if $('#tmi').hasClass("active") {
+		  return;
+		} else {
+		  // instruction that this triger event will do
+		}	
+	  },
 	  subGroup: [
-        {
+        /*{
           name: 'Idea item 1',
           desc: 'Demo',
 		  id: 'i1cmd',
-		  i1cmd: function(args) { console.log("First Idea " + args[0]); }
+		  cmd: function(args) { console.log("First Idea " + args[0]); }
         },
 		{
           name: 'Idea item 2',
           desc: 'Demo',
 		  id: 'i2cmd',
-		  i2cmd: function(args) { console.log("Second Idea " + args[0]); }
-        }
+		  cmd: function(args) { console.log("Second Idea " + args[0]); }
+        }*/
 	  ]
 	},
 	{      
 	  name: 'Event',
       desc: 'Event Calendar',
       id: 'tme',
+	  pos: '', //position in percentage along the menu bar from left;
+	  cmd: function(args) { 
+	    console.log("Go to Faces Page " + args[0]); 
+		if $('#tme').hasClass("active") {
+		  return;
+		} else {
+		  // instruction that this triger event will do
+		}	
+	  },
 	  subGroup: [
-        {
+        /*{
           name: 'Event item 1',
           desc: 'Demo',
 		  id: 'e1cmd',
-		  e1cmd: function(args) { console.log("At Event 1 " + args[0]); }
+		  cmd: function(args) { console.log("At Event 1 " + args[0]); }
         },
 		{
           name: 'Event item 2',
           desc: 'Demo',
 		  id: 'e2cmd',
-		  e2cmd: function(args) { console.log("At Event 2 " + args[0]); }
+		  cmd: function(args) { console.log("At Event 2 " + args[0]); }
         },
 		{
           name: 'Event item 3',
           desc: 'Demo',
 		  id: 'e3cmd',
-		  e3cmd: function(args) { console.log("At Event 3 " + args[0]); }
-        }
+		  cmd: function(args) { console.log("At Event 3 " + args[0]); }
+        }*/
 	  ]
 	},
 	{      
@@ -103,13 +138,13 @@
           name: 'Edit Profile',
           desc: 'Editing Profile',
 		  id: 'epcmd',
-		  epcmd: function(args) { console.log("called edit profile function " + args[0]); }
+		  cmd: function(args) { console.log("called edit profile function " + args[0]); }
         },
 		{
           name: 'Sign Out',
           desc: 'Signing Out',
 		  id: 'socmd',
-		  socmd: function(args) { console.log("called sign out function " + args[0]); }
+		  cmd: function(args) { console.log("called sign out function " + args[0]); }
         }
 	  ]
 	}

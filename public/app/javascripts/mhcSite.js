@@ -63,6 +63,10 @@ var f = font || '12px arial',
 //};
 
 HPROG.site.displaypdmenu = function(elid) {
+  // To do need to do this from the top down, e.g. the Top Level Menu Bar should use the same 
+  // Menu aobject structure to build the whole menu bar - I guess this is not unlike Angular, 
+  // but this way we have more control. This will help us in abstracting this app into a repeatable 
+  // platform for communities. 
   var rect = $('#'+elid)[0].getBoundingClientRect();
   console.log("Top left corner: " + rect.top + " : " + rect.left);
   var result = $.grep(Menus, function(e){ return e.id === elid; });
@@ -73,7 +77,7 @@ HPROG.site.displaypdmenu = function(elid) {
 	//value[value.id]([value.desc]);	
 	$('#pdsubmenu').append('<div id="'+value.id+'" class="pdmenuitem clickable" >'+value.name+'</div>');
 	$("#"+value.id).live('click', function() {
-      value[value.id]([value.desc]);  	  
+      value.cmd([value.desc]);  	  
       $('#pdsubmenu').css('visibility','hidden');
 	  //$('#pdsubmenu').find('.pdmenuitem').remove();
     });
