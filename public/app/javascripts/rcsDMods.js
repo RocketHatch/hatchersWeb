@@ -6,7 +6,7 @@
 	  pos: '', //position in percentage along the menu bar from left;
 	  cmd: function(args) { 
 	    console.log("Go to Faces Page " + args[0]); 
-		if $('#tmf').hasClass("active") {
+		if ($('#tmf').hasClass("active")) {
 		  return;
 		} else {
 		  // instruction that this triger event will do
@@ -40,7 +40,7 @@
 	  pos: '', //position in percentage along the menu bar from left;
 	  cmd: function(args) { 
 	    console.log("Go to Places Page " + args[0]); 
-		if $('#tmp').hasClass("active") {
+		if ($('#tmp').hasClass("active")) {
 		  return;
 		} else {
 		  // instruction that this triger event will do
@@ -74,7 +74,7 @@
 	  pos: '', //position in percentage along the menu bar from left;
 	  cmd: function(args) { 
 	    console.log("Go to Ideas Page " + args[0]); 
-		if $('#tmi').hasClass("active") {
+		if ($('#tmi').hasClass("active")) {
 		  return;
 		} else {
 		  // instruction that this triger event will do
@@ -102,7 +102,7 @@
 	  pos: '', //position in percentage along the menu bar from left;
 	  cmd: function(args) { 
 	    console.log("Go to Faces Page " + args[0]); 
-		if $('#tme').hasClass("active") {
+		if ($('#tme').hasClass("active")) {
 		  return;
 		} else {
 		  // instruction that this triger event will do
