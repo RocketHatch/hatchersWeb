@@ -10,9 +10,7 @@ var eData = [
 var heatmap;
 
 $(document).ready(function(){
-  // read text entries from xml file
-  //$scope.updateSkillList();
-  //$scope.updateMembers();
+
   $('.lnavcat').css('cursor', 'pointer');
   $('.mapButton').css('cursor', 'pointer');
   $('#sk0').addClass('active');
@@ -70,11 +68,10 @@ $(document).ready(function(){
     $(this).addClass('unenabled');	
   })
   $('#logregjoin').live('click', function() {
-    HPROG.site.displayMessage(testorMessage(),true);
-    $('#logregarea').removeClass('login').addClass('register');
-	//HPROG.site.displayMessage("This function only works for testing team members",true);
-	//HPROG.site.displayInputDialog("Alpha Test Code", true);
-	HPROG.site.displayRegBox(true);
+    HPROG.site.displayLogBox(false);
+    HPROG.site.displayMessage(testorMessage(),true);	
+      //$('#logregarea').removeClass('login').addClass('register');
+	
   })
   
   $('#frgtpw').live('keyup', function() {  
@@ -252,11 +249,21 @@ $(document).ready(function(){
   });
   
   $("#messcan.msg").live('click', function() {
-    $('#mtxt').css('top','10px');
-	$('#gitlnk').remove();
     HPROG.site.displayMessage("Forget Message", false);
 	
   });
+  $("#messcan.join").live('click', function() { 
+    var proceed = $.sha256($("#jcode").attr('value')); 
+	console.log("Proceed is: " + proceed);
+    $('#mtxt').css('top','10px');
+	$('#gitlnk').remove();
+	$('#jcode').remove();
+	$(this).removeClass('join');
+    $('#logregarea').removeClass('login').addClass('register');
+	if ( proceed === '58c37f448816d73a87e14bd72d944af9da100e31addd893f512b3d118f32e14a' ) {
+	  HPROG.site.displayRegBox(true);
+	}
+  }); 
   $("#messcan.fgtpw").live('click', function() {
     HPROG.site.displayMessage("Forget Message", false);
 	HPROG.site.resetInputDialog();
@@ -481,15 +488,14 @@ function initializeMap() {
 } 
 
 function testorMessage() {
+  $("#messcan").addClass('join');
   $("#mtxt").css('top','10px');
   $("<div id='gitlnk' class='clickable' data='http://github.com/RocketHatch/hatchersWeb'>github.com/RocketHatch/hatchersWeb</div>").appendTo( $("#messTxt") );
+  $('<input id="jcode" type="text" class="jcode" placeholder=" enter invitation code here "></input>').appendTo( $("#messTxt") );
   return "This application is in development. Joining as an alpha testor is by innvitation. " +
                "If you are interested in joining the testing and/or development team check our Github " +
                "page at:" 			   
 }
-
-//function linkIn(event) { HPROG.site.displayLink(event.target, 'true'); };
-//function linkOut(event) { HPROG.site.displayLink(event.target, 'false'); };
 
 
 

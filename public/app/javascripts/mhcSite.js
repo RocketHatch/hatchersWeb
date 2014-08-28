@@ -165,7 +165,7 @@ HPROG.site.displayLogBox = function (display) {
 	$("#nmSkills").css('display','none');
 	$("#logreghead").html('login');
 	$("#logregsend").html('submit');
-	//$(".mJoin").css('visibility','visible');
+	$("#picarea").css('display','none');
     $('.mJoin').css('display','block');	
   } else {
     $("#logregarea").css('display','none').removeClass('login');
@@ -176,7 +176,8 @@ HPROG.site.displayLogBox = function (display) {
 };
 
 HPROG.site.displayRegBox = function (display) {
-  if (display) {  
+  if (display) { 
+    $("#logregarea").css('display','block');  
 	$("#log").css('display','none');
 	$("#reg").css('display','block');
 	$("#nmSkills").css('display','block');
@@ -397,9 +398,8 @@ HPROG.site.validateRegForm = function() {
   if (!$('#regpw').attr('value') || $('#regpw').attr('value') !== $('#cregpw').attr('value')) {
 	listInvalid.push("password");
   }
-  if (!$('#regcode').attr('value') || $.sha256($('#regcode').attr('value')) !== '58c37f448816d73a87e14bd72d944af9da100e31addd893f512b3d118f32e14a') {
-	listInvalid.push("access");
-  }
+  // Add vailidate rule for askill tags here ---
+ 
   return listInvalid;  
 }
 //HPROG.site.displayMessage = function (message)  {

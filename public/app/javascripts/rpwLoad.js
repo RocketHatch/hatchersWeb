@@ -11,7 +11,7 @@ $(document).ready(function(){
 	}
   })
   $("#rpwcan").click(function(){
-    close();
+    window.location = "http://rockethatchers.us/index.html";
     return false;
   })
   $("#rpwsend").click(function(){ 
@@ -28,8 +28,15 @@ HPROG.reset.confirmMatch = function() {
 };
 
 HPROG.reset.pwUpdate = function(mid, reset) {
+  var changed = false;
   var data = {mid:mid,prop:'data',nuval:reset};
-  HPROG.ajax.updateMemeber(data); 
+  changed = HPROG.ajax.updateMemeber(data);
+  if (changed) {
+    console.log("Password changed");
+    window.location = "http://rockethatchers.us/index.html";
+  } else {
+    console.log("Houston there is a problem!");  
+  }
 };	
 
 /* 

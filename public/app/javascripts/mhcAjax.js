@@ -44,6 +44,7 @@ HPROG.ajax.insertMemeber = function(data) {
 
 HPROG.ajax.updateMemeber = function(data) {
   var dataS = JSON.stringify(data);
+  var changed = false;
   console.log( "The data sent: " + dataS);
   $.ajax({
     type: 'POST',
@@ -53,10 +54,12 @@ HPROG.ajax.updateMemeber = function(data) {
     success: function(validationResp) {
       //console.log("data received: " + validationResp.length + " at column: " + column);
       if (validationResp.message) {       
-        HPROG.site.displayMessage(validationResp.message, true);;
-      } 
+        HPROG.site.displayMessage(validationResp.message, true);
+      }
+      changed = true;	  
     }
   });
+  return true;
 };
 
 HPROG.ajax.sendEmailMessage = function(data) {

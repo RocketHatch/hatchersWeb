@@ -907,12 +907,17 @@ input.log {
 }
 
 #msgBx {
-  height: 225px;
+  height: auto;
   width: 100%;
   position: relative;
   background-color: #009ccc;
   opacity: .9; 
   display: table;  
+}
+
+.jcode {
+  width: 300px;
+  margin-top: 15px;
 }
 
 .frtpw {
@@ -982,7 +987,7 @@ input.log {
   background: #ccc;
   margin-right: 10px;
   height: auto;
-  height: 170px;
+  height: auto;
   width: 80%;
   margin-left: 10%;
   margin-right: 10%;
