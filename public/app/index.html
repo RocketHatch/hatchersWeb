@@ -19,6 +19,10 @@
     <title>Rocket Hatchers</title> 
 
     <script src="/javascripts/jquery-1.7.2.js"></script>
+	<script src="/javascripts/jquery.ui.widget.js"></script>
+    <script src="/javascripts/jquery.iframe-transport.js"></script>
+    <script src="/javascripts/jquery.fileupload.js"></script>
+	<script src="/javascripts/jquery.cloudinary.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZ9EV1xuaqqq5Gn38WfDoQGsCzG4ARB6Y&sensor=false&libraries=visualization">
     </script>
 	<script src="/javascripts/mhcCommon.js"></script>
@@ -33,12 +37,11 @@
 	<script src="/javascripts/mhcAjax.js"></script>
     <script src="/javascripts/hprogCanvas.js"></script>
 	<script src="/javascripts/mhcLoad.js"></script>
-	
     <script type="text/javascript">
       google.maps.event.addDomListener(window, 'load', initializeMap);
     </script>
   </head>
-  <body id="bodycontainer" data-ng-app='mhcApp' data-ng-controller='RCSController'>    
+  <body id="bodycontainer" data-ng-app='mhcApp' data-ng-controller='RCSController'>  
     <div id="container">
     
       <div id="rhheader">
@@ -113,7 +116,7 @@
 	    <div id="content">
 		   <div id="memdiplay" class="column-center">	      
 		     <div class="photoTile cover" data-ng-repeat="mem in members">
-			   <img class="memigm" src="/images/members/{{mem._id}}.jpg"/>
+			   <img class="memimg" src="http://res.cloudinary.com/hupkdp5vh/image/upload/{{mem.public_id}}"/>
 			   <div class="idplate" data="{{mem.url}}" member="{{mem}}" ng-click='setCurrentMember(mem)'>
 			     <div class="platename ptxt" data="{{mem}}" member="{{mem}}">{{mem.name.fname}} {{mem.name.lname}}</div>
 				   <div class="plateskill ptxt">{{getSkills(mem.skillList)}}</div>
@@ -128,7 +131,7 @@
       <div id='pPage' class="page">
 	    <div id='proTop'> <!--data-ng-repeat="mbr in currentMember"-->
 			<div id='proPct'>
-			  <img class="pimg" src="/images/members/{{currentMember._id}}.jpg"/>
+			  <img class="pimg" src="http://res.cloudinary.com/hupkdp5vh/image/upload/{{currentMember.public_id}}"/>
 			</div>
 			
 			<div id='proBio'>
@@ -218,14 +221,20 @@
               <input id="regln" type="text" class='reg name' placeholder="last name"></input>
 			</div>
             <input id="regeml" type="text" class='reg' placeholder="email"></input>
+			
+			<!-- ---------------------->
             <input id="regpfn" type="text" class='reg photo' placeholder="browse to choose file"></input>
-			<div id='photouparea'>
-			  <input id='photobrws' type="file" name="datafile" class='rhFileInput upload cmd'></input>
-			  <div id='photoBr' class='upload cmd clickable'> browse </div>
+			<form id='photouparea' name="imageUpload" onsubmit="return doUpload()">
+			  <input id='photobrws' type="file" name="file" class='rhFileInput cloudinary_fileupload'></input>
+			  <div id='photoBr'></div>
 			  <!--div id='photoUp' class='upload cmd clickable'> upload </div-->
-			  <div id='filename'></div>
-			</div>
-            <textarea id="regtag" rows='2' type="text" class='reg tag' placeholder="tagline"></textarea>
+			  <div id='publicid' data="" class="thumbnails"></div>
+			  <div id='progress' class="progress_bar"></div>
+			  <!--input id='upImg' type="submit"></input-->
+			</form>
+			<!-------------------------->
+            
+			<textarea id="regtag" rows='2' type="text" class='reg tag' placeholder="tagline"></textarea>
             <input id="regweb" type="text" class='reg' placeholder="personal web site"></input>
             <input id="regpw" type="password" class='reg' placeholder="password"></input>
             <input id="cregpw" type="password" class='reg' placeholder="confirm password"></input>

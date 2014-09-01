@@ -996,15 +996,15 @@ input.log {
 
 #gitlnk {
   color: #000080;
-  position: relative;
-  top: 10px;
+  /*position: relative;
+  top: 10px;*/
 }
-
+/*
 #mtxt {
   position: relative;
   top: 70px;
 }
-
+*/
 #pDone, #pDone A, #plogregDone {
   color: #5f3133;
   font: bold 10px/1 Arial, cursive, sans-serif;

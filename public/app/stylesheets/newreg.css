@@ -155,6 +155,16 @@ acronym {
   width: 100%;
   height:auto;
 }
+
+.nimg {
+  width: 250px;
+  height:250px;
+}
+
+.nBx {
+  font-size: 12pt;
+  color: #fff;
+}
   
 .messbox {
   width: 100%;

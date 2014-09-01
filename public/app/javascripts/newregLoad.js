@@ -5,6 +5,8 @@ $(document).ready(function(){
 
   $("#nconfirm").click(function(){ 
     HPROG.newreg.updateExDate($(this).attr('data'));
+	$("#nBx").html('Return to the community to meet other or to edit your profile');
+	$("#conf").html('Confirmed!'); 
     return false;
   });
 

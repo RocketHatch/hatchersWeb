@@ -221,13 +221,14 @@ var RCSData = {
   }  
 };
 
-function Member(emid,name,skills,tagline,url,data) {
+function Member(emid,name,skills,tagline,url,img,data) {
   this.uid = emid;
   this.name = name;
   this.skillList = skills;
   this.tagline = tagline;
   this.data = data;
   this.url = url;
+  this.public_id = img;
   this.lastLogon = null;
   this.dateCreate = null;
   this.dateExpire = null;

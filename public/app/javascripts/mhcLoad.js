@@ -10,7 +10,7 @@ var eData = [
 var heatmap;
 
 $(document).ready(function(){
-
+  $.cloudinary.config({ cloud_name: 'hupkdp5vh', api_key: '443713761466564'});
   $('.lnavcat').css('cursor', 'pointer');
   $('.mapButton').css('cursor', 'pointer');
   $('#sk0').addClass('active');
@@ -62,8 +62,10 @@ $(document).ready(function(){
 							   $("#regln").attr('value'),
                                skills,							   
 							   $("#regtag").attr('value'), 
-							   $("#regweb").attr('value'), 
-							   $.sha256($("#regpw").attr('value')));  
+							   $("#regweb").attr('value'),
+                               $("#publicid").attr('data'),							   
+							   $.sha256($("#regpw").attr('value')));
+      HPROG.site.displayLogBox(false);							   
     }
     $(this).addClass('unenabled');	
   })
@@ -123,7 +125,7 @@ $(document).ready(function(){
   $("#photoUp").live('click', function(){
      filelist= $("#upload-form-file");
 	 for(var k in filelist[0])
-       //HPROG.ajax.uploadImage(filelist[0]);
+       HPROG.ajax.uploadImage(filelist[0]);
 	   console.log(filelist[0]);
      return false;
   })
@@ -131,8 +133,6 @@ $(document).ready(function(){
   $("#photobrws").live('change', function() {
     var file = this.files[0]; //we can retrive the file array.
 	console.log('just got file name ' + JSON.stringify(file));
-    // alert(file.type); if you want to check image type, uncomment this line. 
-    // alert(file.size); if you want to check the image size, uncomment this line.   
     $("#regpfn").attr('value',file.name);
     var reader = new FileReader();
 
@@ -144,10 +144,15 @@ $(document).ready(function(){
         $('#baseimg').attr('src',  file.target.result);
     };
 
-    // Reading the file as a DataURL. When finished,
-    // this will trigger the onload function above:  
-    reader.readAsDataURL(file); 
+    reader.readAsDataURL(file);
+	//console.log("input ele: " + JSON.stringify($.cloudinary.unsigned_upload_tag("iqvmdwj4",null, 
+    //  { cloud_name: 'hupkdp5vh' })));
+    //$("#photouparea").append($.cloudinary.unsigned_upload_tag("iqvmdwj4",
+    //  { cloud_name: 'hupkdp5vh' }));	
+	console.log('trigger upload');
   })
+  
+
   //------------------------------------------
   $("#plogregDone").click(function(){
      HPROG.site.displayLogBox(false);
@@ -384,6 +389,26 @@ $(document).ready(function(){
 	  window.history.pushState('forward', null, './index.html');
     });
   }
+  //$.cloudinary.image('sample.jpg', { alt: "Sample Image" });
+  //$("#photouparea").append($.cloudinary.unsigned_upload_tag("iqvmdwj4",
+  //    { cloud_name: 'hupkdp5vh' }));	
+
+  $('#photouparea').unsigned_cloudinary_upload("iqvmdwj4", 
+      { cloud_name: 'hupkdp5vh', tags: 'member_uploads' }, 
+      { multiple: false }
+  ).bind('cloudinarydone', function(e, data) {
+    console.log("e: " + $.cloudinary.url(data.result.public_id,{cloud_name: 'hupkdp5vh'}));
+	$('#publicid').attr('data',data.result.public_id);
+	$('#baseimg').attr('src',$.cloudinary.url(data.result.public_id,{cloud_name: 'hupkdp5vh'}));
+    /*$('.thumbnails').append($.cloudinary.image(data.result.public_id, 
+        { format: 'jpg', width: 150, height: 100, 
+          crop: 'thumb', gravity: 'face', effect: 'saturation:50' } ))}
+
+    ).bind('cloudinaryprogress', function(e, data) { 
+
+      $('.progress_bar').css('width', 
+      Math.round((data.loaded * 100.0) / data.total) + '%');*/ 
+  });
 }) 
 /*
 function drawImage(imageObj) {
