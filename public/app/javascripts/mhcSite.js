@@ -166,7 +166,7 @@ HPROG.site.displayLogBox = function (display) {
 	$("#logreghead").html('login');
 	$("#logregsend").html('submit');
 	$("#picarea").css('display','none');
-    $('.mJoin').css('display','block');	
+    $('.mJoin').css('display','inline-block');	
   } else {
     $("#logregarea").css('display','none').removeClass('login');
     $("#picarea").css('display','none');	

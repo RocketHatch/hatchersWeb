@@ -1051,7 +1051,22 @@ input.log {
   cursor: default;
 }
 
-.mJoin { 
+.mJoin {
+  display: inline-block; 
+}
+
+.fleft {
+  float: left;
+  margin-left: 10px;
+}
+
+.fright {
+  float: right;
+  margin-right: 10px;
+}
+
+#cmds {
+  display: inline-block;
 }
 
 .messhead {
