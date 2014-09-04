@@ -117,8 +117,8 @@
 		   <div id="memdiplay" class="column-center">	      
 		     <div class="photoTile cover" data-ng-repeat="mem in members">
 			   <img class="memimg" src="http://res.cloudinary.com/hupkdp5vh/image/upload/{{mem.public_id}}"/>
-			   <div class="idplate" data="{{mem.url}}" member="{{mem}}" ng-click='setCurrentMember(mem)'>
-			     <div class="platename ptxt" data="{{mem}}" member="{{mem}}">{{mem.name.fname}} {{mem.name.lname}}</div>
+			   <div class="idplate" data="{{mem.url}}" ng-click='setCurrentMember(mem)'>
+			     <div class="platename ptxt" >{{mem.name.fname}} {{mem.name.lname}}</div>
 				   <div class="plateskill ptxt">{{getSkills(mem.skillList)}}</div>
 				 </div>
 			   </div>
@@ -222,20 +222,17 @@
 			</div>
             <input id="regeml" type="text" class='reg' placeholder="email"></input>
 			
-			<!-- ---------------------->
-            <input id="regpfn" type="text" class='reg photo' placeholder="browse to choose file"></input>
-			<form id='photouparea' name="imageUpload" onsubmit="return doUpload()">
+			<!-- The Head Shot image part of the form ---------------------->
+            <input id="regpfn" type="text" class='reg photo' placeholder="your photo or image - choose file"></input>
+			<div id='photouparea' name="imageUpload">
 			  <input id='photobrws' type="file" name="file" class='rhFileInput cloudinary_fileupload'></input>
-			  <div id='photoBr'></div>
-			  <!--div id='photoUp' class='upload cmd clickable'> upload </div-->
-			  <div id='publicid' data="" class="thumbnails"></div>
+			  <div id='publicid' data="" class="pid"></div>
 			  <div id='progress' class="progress_bar"></div>
-			  <!--input id='upImg' type="submit"></input-->
-			</form>
-			<!-------------------------->
+			</div>
+			<!------------------------------------------------------------------>
             
 			<textarea id="regtag" rows='2' type="text" class='reg tag' placeholder="tagline"></textarea>
-            <input id="regweb" type="text" class='reg' placeholder="personal web site"></input>
+            <input id="regweb" type="text" class='reg' placeholder="http:// Web link"></input>
             <input id="regpw" type="password" class='reg' placeholder="password"></input>
             <input id="cregpw" type="password" class='reg' placeholder="confirm password"></input>
 			<!--input id="regcode" type="text" class='reg' placeholder="access code"></input-->
@@ -246,18 +243,19 @@
           <canvas id='canvas'></canvas>
         </div>
 		<div id='nmSkills'>
+		  <div id='sklrule'>Add At least One (1) and no more than Three (3) Skills</div>
 		  <div id='nmsk{{skill._id}}' data='{{skill._id}}' class='skilltag pu clickable' ng-repeat="skill in skillList">
 	        <div class="sktxt">{{skill.type.toLowerCase()}}</div>
 	      </div>		  
 		</div>
 	  </div>
 	  
-      <div id='logregfoot' class='messfoot'>
+      <div id='logregfoot' class='messfoot' title=''>
         <div id='separator'></div>
 		<div id="pwreset" class="mJoin clickable log"> forgot password? </div>
         <p id="logregcan" class="mDone clickable"> cancel </p>
 	    <p id="logregsep" class="mDone"> | </p>
-	    <p id="logregsend" class="mDone clickable unenabled"> send </p>
+	    <p id="logregsend" class="mDone clickable unenabled" title=''> send </p>
 		<div id="logregjoin" class="mJoin clickable log"> join the community </div>
       </div>
     </div>
@@ -281,7 +279,7 @@
         </div>
       </div>
 	  
-	  <div id='msgfoot' class='messfoot'>
+	  <div id='msgfoot' class='messfoot' >
         <div id='separator'></div>
 		<p id="messcan" class="mDone clickable msg"> ok </p>
 	    <p id="messsep" class="mDone msg"> | </p>

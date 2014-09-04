@@ -69,6 +69,13 @@ $(document).ready(function(){
     }
     $(this).addClass('unenabled');	
   })
+  $('#logregsend').live('hover', function() {
+    var invalidFields = [];
+    if ($(this).hasClass('unenabled')) {
+	  var invfld = HPROG.site.validateRegForm()
+	  $(this).attr('title',HPROG.site.validateRegForm().toString().replace(/,/g, '\n'));
+	}
+  })
   $('#logregjoin').live('click', function() {
     HPROG.site.displayLogBox(false);
     HPROG.site.displayMessage(testorMessage(),true);	
@@ -114,46 +121,35 @@ $(document).ready(function(){
   $('#rtotopb').click(function() {
     window.location = "#top";
   })
+  /*
   $("#photoBr").live('click', function(){
      $("#photobrws").trigger('click');
      return false;
   })
-  $("#regpfn").live('click', function(){
-     $("#photoBr").trigger('click');
-     return false;
-  })
-  $("#photoUp").live('click', function(){
+    $("#photoUp").live('click', function(){
      filelist= $("#upload-form-file");
 	 for(var k in filelist[0])
        HPROG.ajax.uploadImage(filelist[0]);
 	   console.log(filelist[0]);
      return false;
   })
-  // test -----------------------------------
+  */
+  $("#regpfn").live('click', function(){
+     $("#photobrws").trigger('click');
+     return false;
+  })
+
   $("#photobrws").live('change', function() {
-    var file = this.files[0]; //we can retrive the file array.
-	console.log('just got file name ' + JSON.stringify(file));
+    var file = this.files[0]; // retrive file array.
+	//console.log('got file name ' + JSON.stringify(file));
     $("#regpfn").attr('value',file.name);
     var reader = new FileReader();
-
-    // file.target.result holds the DataURL which
-    // can be used as a source of the image:  
-
-    //imgpreview is the id of the img tag where you want to display the image  
     reader.onload = function(file){
         $('#baseimg').attr('src',  file.target.result);
     };
-
     reader.readAsDataURL(file);
-	//console.log("input ele: " + JSON.stringify($.cloudinary.unsigned_upload_tag("iqvmdwj4",null, 
-    //  { cloud_name: 'hupkdp5vh' })));
-    //$("#photouparea").append($.cloudinary.unsigned_upload_tag("iqvmdwj4",
-    //  { cloud_name: 'hupkdp5vh' }));	
-	console.log('trigger upload');
   })
-  
 
-  //------------------------------------------
   $("#plogregDone").click(function(){
      HPROG.site.displayLogBox(false);
      return false;
@@ -288,7 +284,8 @@ $(document).ready(function(){
 	if (! $('#skillbar').hasClass('closed')) {
 	  $("#sklhead").trigger('click'); 
     }
-	var mem = JSON.parse($(this).attr('member'));
+	//var mem = JSON.parse($(this).attr('member'));
+	var mem = RCSData.getCurrentMember();
 	console.log("member id = " + mem._id);	
     HPROG.site.togglePage($("#pPage"), $("#mPage"), true, ckCurUserIsCurMem(mem._id));
     sizeProField(mem)   	
@@ -323,14 +320,20 @@ $(document).ready(function(){
      // TODO this click should go away and the tags highlight state
 	 // should be kept insync by using the current select skill list
 	 // see rcsDMods.js
-	 console.log("pushed button with id = " + $(this).attr('id'));
+	 //console.log("pushed button with id = " + $(this).attr('id'));
+	 if ( !$(this).hasClass('active') && $('#nmSkills').find('.active').length > 2 ) {
+	   return false;
+	 }
 	 if ($(this).attr('id') == 'sk0') {
 	   console.log("pushed the all button");
        $('#skillbar').find('.active').removeClass('active'); 	 
        $(this).addClass('active');	
      } else if (! $(this).hasClass('active')) {
 	   $(this).addClass('active');
-       $('#sk0').removeClass('active');		   
+       $('#sk0').removeClass('active');
+       if ($(this).hasClass('pu')) {
+          $("#inputarea").trigger('keyup'); 
+	   }  
 	 } else {
 	   $(this).css("backgroud",'#009ccc');
 	   if (!$(this).hasClass('profile')) {
@@ -389,9 +392,6 @@ $(document).ready(function(){
 	  window.history.pushState('forward', null, './index.html');
     });
   }
-  //$.cloudinary.image('sample.jpg', { alt: "Sample Image" });
-  //$("#photouparea").append($.cloudinary.unsigned_upload_tag("iqvmdwj4",
-  //    { cloud_name: 'hupkdp5vh' }));	
 
   $('#photouparea').unsigned_cloudinary_upload("iqvmdwj4", 
       { cloud_name: 'hupkdp5vh', tags: 'member_uploads' }, 
@@ -400,14 +400,12 @@ $(document).ready(function(){
     console.log("e: " + $.cloudinary.url(data.result.public_id,{cloud_name: 'hupkdp5vh'}));
 	$('#publicid').attr('data',data.result.public_id);
 	$('#baseimg').attr('src',$.cloudinary.url(data.result.public_id,{cloud_name: 'hupkdp5vh'}));
-    /*$('.thumbnails').append($.cloudinary.image(data.result.public_id, 
-        { format: 'jpg', width: 150, height: 100, 
-          crop: 'thumb', gravity: 'face', effect: 'saturation:50' } ))}
-
+    /* TODO add progress bar ---
     ).bind('cloudinaryprogress', function(e, data) { 
 
       $('.progress_bar').css('width', 
-      Math.round((data.loaded * 100.0) / data.total) + '%');*/ 
+      Math.round((data.loaded * 100.0) / data.total) + '%');
+	*/ 
   });
 }) 
 /*
@@ -482,7 +480,8 @@ function sizeProPage(est) {
 
 }
 
-function sizeProField(member) {
+function sizeProField() {
+  var member = RCSData.getCurrentMember();
   var metrx = HPROG.site.textMetrx(member.name.fname, "28pt novecento_sans_widenormal");
   $("#mfname").css("width", metrx.w + 5);
   metrx = HPROG.site.textMetrx(member.name.lname, "28pt novecento_sans_widenormal");

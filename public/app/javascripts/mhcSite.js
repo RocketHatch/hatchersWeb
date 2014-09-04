@@ -366,7 +366,6 @@ HPROG.site.validateLogReg = function() {
 	//console.log("Login form fields: " + lst);
   } else if ($('#logregarea').hasClass('register')) {
     lst = HPROG.site.validateRegForm();
-	console.log("Register form fields: " + lst);
   }
   return lst.length === 0;
 }
@@ -385,21 +384,22 @@ HPROG.site.validateLoginForm = function() {
 HPROG.site.validateRegForm = function() {
   var listInvalid = [];
   if (!$('#regfn').attr('value') && !($('#regln').attr('value'))) {
-	listInvalid.push("name");
+	listInvalid.push("Must have at least one name");
   }
   if (! HPROG.site.validateEMail($('#regeml').attr('value'))) {
-	listInvalid.push("uid");
+	listInvalid.push("Enter a vaild Email addrees");
   }
   if ($('#regweb').attr('value')) {
     if(! HPROG.site.validateLink($('#regweb').attr('value'))) {
-	  listInvalid.push("link");
+	  listInvalid.push("Links must start with 'http://'");
 	}
   }
   if (!$('#regpw').attr('value') || $('#regpw').attr('value') !== $('#cregpw').attr('value')) {
-	listInvalid.push("password");
+	listInvalid.push("Passwords don't match");
   }
-  // Add vailidate rule for askill tags here ---
- 
+  if ( $('#nmSkills').find('.active').length < 1  ) {
+	 listInvalid.push("Must have at least one skill");
+  }
   return listInvalid;  
 }
 //HPROG.site.displayMessage = function (message)  {

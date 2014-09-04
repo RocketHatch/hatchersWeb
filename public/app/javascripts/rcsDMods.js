@@ -158,7 +158,7 @@ var RCSData = {
   curMbrList : [],  
   skills : [], 
   cMembers : [],
-			 
+  
 			 SlctdSkillList : { 
                getCurrentList : function() {
                  return RCSData.curSklList;
@@ -218,7 +218,8 @@ var RCSData = {
   getCurrentMember : function() {
     console.log("getting current member:");
     return RCSData.curMember;
-  }  
+  },
+  invalidRegForm : []  
 };
 
 function Member(emid,name,skills,tagline,url,img,data) {
