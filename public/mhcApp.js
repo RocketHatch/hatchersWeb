@@ -4,7 +4,7 @@ var session = require('session');
 var router = require('router');
 var requestHandlers = require('requestHandlers');
 var message = require('sendNotification');
-var testUpdate = require('mdbactions');
+//var testUpdate = require('mdbactions');
 
 var CHECKLISTMINUTES = 5;
 var handle = {};
@@ -22,13 +22,16 @@ handle['/rdata'] = requestHandlers.reset;
 handle['/ndata'] = requestHandlers.confirm;
 //var sessions = new Array();
 
-server.start(router.route, handle);
 //console.log("host and port in config.json is: " + config.host + " : " + config.port);
 console.log('HOST ENV variable: ' + process.env.HOST);
 console.log('PORT ENV variable: ' + process.env.PORT);
 console.log('MONGO ENV variable: ' + process.env.MONGOHQ_URL);
 console.log('POSTMARK ENV variable: ' + process.env.POSTMARK_API_KEY);
+
+
+server.start(router.route, handle);
 console.log("MetroHuntsville Creative WEB Site up and running!");
+
 //setInterval(function(){session.purgeSessions()},(CHECKLISTMINUTES*60*1000));
 	
 

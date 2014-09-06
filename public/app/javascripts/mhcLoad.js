@@ -14,6 +14,9 @@ $(document).ready(function(){
   $('.lnavcat').css('cursor', 'pointer');
   $('.mapButton').css('cursor', 'pointer');
   $('#sk0').addClass('active');
+  var ttip = "For best result choose an image that can\nscale-up or be cropped to 500px x 500px";
+  $('#baseimg').attr('title', ttip);
+  $('#regpfn').attr('title', ttip);
   
   $("#contact").click(function(){
     HPROG.site.displayContactBlock(true);
